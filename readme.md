@@ -7,7 +7,7 @@
 ## 环境与安装
 
 - Python 3.10 或以上；已保存的本地实测环境为 Windows、Python 3.13.9。
-- 从源码运行和执行测试无需第三方依赖，`requirements.txt` 为空是有意设计。
+- 从源码运行和执行测试无需第三方依赖。
 - 真实模型模式需要有效 API 密钥及可访问的兼容 Chat Completions JSON mode 的服务；离线 Mock 不需要密钥。
 
 ```shell
@@ -123,29 +123,3 @@ Trace 包含动作、工具参数、结果摘要及简短决策依据，不记�
 验收覆盖明确答案、文档冲突、资料外问题、改写问题、上下文追问、工具失败、资料替换以及执行上限。最新整批结果与独立复测分别保留，不将跨批通过描述为单批全部通过。
 
 每个场景保存 `<id>.input.json`、`<id>.output.json` 和 `<id>.trace.jsonl`。场景的 `.input.json` 是 `evaluate` 验收配置，不应直接传给 `ask --input`；后者示例为 [context.input.json](examples/context.input.json)。新运行结果建议写入 `examples/local/`，以保留已有验收证据。
-
-## 项目结构
-
-```text
-README.md
-run.py
-src/knowledge_agent/
-tests/
-data/
-examples/
-docs/
-.env.example
-requirements.txt
-pyproject.toml
-.github/workflows/test.yml
-```
-
-## 发布说明与已知限制
-
-本工程已发布到本页所列 GitHub 仓库。部分开发阶段文档中的“仅本地交付”“GitHub URL 后补”描述已过时，发布状态以本 README 为准。文档提到的旧本地提交 `2f5c7e89` 未发布到本仓库，不能在本仓库中据此获取旧源码；保留的旧运行记录用于说明开发过程，当前验收证据统一位于 `examples/review-v2/`。无需依赖本地交付阶段的 ZIP、Git bundle 或仓库外的 `delivery.json` 运行项目。
-
-实际用时的记录区间及边界见评估文档；这些是可核对的开发过程记录，不冒充提交人个人手工工时。
-
-本次交付采用题目允许的 CLI 方式，未实现界面、线上部署、多 Agent 生产调度、企业权限管理或真实企业资料接入。有限合成案例通过不能保证所有未来问题均正确；词法检索可能漏召回，模型可能误解语义，外部服务可能超时。真实模型需要单独配置服务，离线 Mock 不提供通用问答能力。
-
-最终提交时应提供题号、仓库 URL，以及包含本 README 和全部交付材料的最终 commit SHA。SHA 可从 GitHub 对应提交页面复制，或在同步后的仓库运行 `git rev-parse HEAD` 获取。
