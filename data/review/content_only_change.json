@@ -1,0 +1,14 @@
+[
+  {
+    "doc_id": "D01",
+    "title": "员工费用报销办法（合成）",
+    "version_date": "2026-01-10",
+    "synthetic": true,
+    "scope": "未说明适用范围和制度优先级",
+    "content": "员工费用报销应在费用发生之日起 45 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。",
+    "keywords": ["报销", "报账", "报销期限", "费用", "reimbursement", "expense"],
+    "facts": [
+      {"key": "expense.deadline", "value": "30 天", "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"}
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-knowledge-agent"
+version = "1.0.0"
+description = "Auditable enterprise knowledge QA agent with bounded model-driven decisions"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+knowledge-agent = "knowledge_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+knowledge_agent = ["mock_scenarios.json"]
+
+[tool.setuptools.data-files]
+"share/enterprise-knowledge-agent" = ["run.py"]
+"share/enterprise-knowledge-agent/data" = ["data/*.json"]
+"share/enterprise-knowledge-agent/data/review" = ["data/review/*.json"]
+"share/enterprise-knowledge-agent/examples" = ["examples/cases.json", "examples/review-cases.json", "examples/context.input.json"]
+"share/enterprise-knowledge-agent/tests" = ["tests/*.py"]
