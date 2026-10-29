@@ -1,0 +1,17 @@
+{
+  "id": "tool_failure",
+  "requirement": "工具持续失败要明确缺口或未完成，不编造答案",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "failures": {
+    "read": -1
+  },
+  "max_steps": 8,
+  "max_tool_calls": 5,
+  "expected": {
+    "status": [
+      "insufficient",
+      "incomplete"
+    ],
+    "has_tool_error": true
+  }
+}

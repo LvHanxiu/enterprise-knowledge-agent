@@ -1,0 +1,14 @@
+{
+  "id": "leave",
+  "requirement": "不同业务领域明确答案",
+  "question": "年假应该提前多久申请？",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D04"
+    ],
+    "answer_contains": [
+      "3 个工作日"
+    ]
+  }
+}

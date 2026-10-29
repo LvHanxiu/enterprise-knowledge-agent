@@ -1,0 +1,25 @@
+{
+  "id": "unindexed_sentence",
+  "requirement": "新增OA提交入口原文未写入facts，仍可正确引用回答",
+  "question": "报销申请在哪里提交？",
+  "data": "data/review/unindexed_sentence.json",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D01"
+    ],
+    "answer_contains": [
+      "OA 系统",
+      "费用报销"
+    ],
+    "answer_excludes": [
+      "30 天",
+      "15 天"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

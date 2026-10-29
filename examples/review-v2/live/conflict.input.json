@@ -1,0 +1,21 @@
+{
+  "id": "conflict",
+  "requirement": "相同规则30/15天冲突，不能凭版本日期擅选",
+  "question": "报销期限是多少天？",
+  "expected": {
+    "status": "conflict",
+    "citation_ids": [
+      "D01",
+      "D02"
+    ],
+    "answer_contains": [
+      "30 天",
+      "15 天",
+      "确认"
+    ],
+    "actions": [
+      "search",
+      "read"
+    ]
+  }
+}

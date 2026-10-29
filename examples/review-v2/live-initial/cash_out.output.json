@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "question": "年假可以折现吗？",
+  "history": [],
+  "answer": "现有资料不足以回答。",
+  "status": "insufficient",
+  "citations": [],
+  "gaps": [
+    "年假是否可以折现"
+  ],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 3992,
+    "completion_tokens": 132,
+    "total_tokens": 4124
+  },
+  "started_at": "2026-10-28T13:32:58.689180+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-2da9b229-c319-9502-b742-ff67959d4bb2"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-921ab309-d22a-9340-8ca5-0fc9fcef0bf5"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-cc4c17b3-cc69-90cb-b287-b13206778b2d"
+    }
+  ],
+  "duration_ms": 4399,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "年假 折现",
+        "limit": 5
+      },
+      "reason": "问题明确询问年假是否可折现，需检索相关制度规定",
+      "observation_summary": "命中 1 份文档；返回：D04",
+      "result": {
+        "query": "年假 折现",
+        "hits": [
+          {
+            "doc_id": "D04",
+            "title": "年假申请制度（合成）",
+            "version_date": "2026-04-15",
+            "snippet": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。",
+            "score": 8.9588,
+            "fact_keys": [
+              "leave.application",
+              "leave.balance"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D04"
+      },
+      "reason": "检索仅命中一份文档，需读取全文确认年假折现规定",
+      "observation_summary": "读取 D04（2026-04-15），原文 78 字符。",
+      "result": {
+        "doc_id": "D04",
+        "title": "年假申请制度（合成）",
+        "version_date": "2026-04-15",
+        "synthetic": true,
+        "scope": "全体正式员工",
+        "content": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。年假余额可在员工自助平台的“假期账户”中查询。本文未规定离职时剩余年假的折算方式。",
+        "keywords": [
+          "年假",
+          "年休假",
+          "带薪休假",
+          "申请",
+          "提前",
+          "余额",
+          "annual leave",
+          "paid leave"
+        ],
+        "facts": [
+          {
+            "key": "leave.application",
+            "value": "提前 3 个工作日",
+            "quote": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。"
+          },
+          {
+            "key": "leave.balance",
+            "value": "假期账户",
+            "quote": "年假余额可在员工自助平台的“假期账户”中查询。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient",
+        "citations": [],
+        "gaps": [
+          "年假是否可以折现"
+        ]
+      },
+      "reason": "D04 明确说明未规定离职时剩余年假的折算方式，且无其他检索结果，无法回答年假折现问题",
+      "observation_summary": "输出通过校验，状态 insufficient。",
+      "result": {
+        "accepted": true,
+        "status": "insufficient"
+      }
+    }
+  ]
+}

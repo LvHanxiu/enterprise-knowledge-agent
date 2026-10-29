@@ -1,0 +1,26 @@
+{
+  "python": "3.13.9",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "timezone_for_report": "Asia/Shanghai",
+  "implementation_start": "2026-10-28T20:24:39+08:00",
+  "verification_end": "2026-10-28T21:03:37.787578+08:00",
+  "elapsed_minutes": 39.0,
+  "runtime_dependencies": "Python standard library only",
+  "framework": "native bounded decision loop",
+  "live_provider": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "live_model": "qwen-plus",
+  "prompt_sha256": "0f4276af96ab0e762ae9a7b0f40d85311b7d76c461d48a5e922a04b77e281096",
+  "files_sha256": {
+    "data/changed_policy.json": "0304b6157884e957b912b3639cb9de9b531f8e57f8156b5cb98399bb74544006",
+    "data/knowledge_base.json": "7b055cad4b62c2ff993227fb4690d754161855ef6d469b146e3e8d269a3168dd",
+    "data/single_policy.json": "3534ac959d3bc16aed29f4d7d30dbbe4709f5f4bfad993bd85cdbba5033dd6a4",
+    "examples/cases.json": "101f7d157153772d895ca04a1a9ff5bd03a424ed4ea6cb3940b8fa1e3e71e775",
+    "src/knowledge_agent/__init__.py": "27e8febb48ada44153ea2add9969a2c50a9831a74d9755fdd53c549a888b1cc2",
+    "src/knowledge_agent/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/knowledge_agent/agent.py": "dd095d3a1f7a253b174d5d4a5c32e7b31c4ecb872ade4d35aef648b4dcef7c36",
+    "src/knowledge_agent/cli.py": "f8e50e1cfb18bbd1f52acbe630318551453199493019ae03ab6aaba7ec57d0ba",
+    "src/knowledge_agent/models.py": "3bfd313fa53c2175a70950bf0b7e3c6d63ef5b1645822c10e160ce1965b8b4b8",
+    "src/knowledge_agent/retrieval.py": "232cc2737333a64ebd6011e0fbe6c4c8476dd25d402fc58cb99faacb2b0ed92b"
+  },
+  "hash_note": "File hashes refer to the delivered LF-normalized text; JSON values and executed Python source semantics are unchanged."
+}

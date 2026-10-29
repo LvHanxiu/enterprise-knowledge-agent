@@ -1,0 +1,16 @@
+{
+  "id": "paraphrase",
+  "requirement": "改写后的相似问题",
+  "question": "我垫付的钱最迟几天内要报账？",
+  "expected": {
+    "status": "conflict",
+    "citation_ids": [
+      "D01",
+      "D02"
+    ],
+    "answer_contains": [
+      "30 天",
+      "15 天"
+    ]
+  }
+}

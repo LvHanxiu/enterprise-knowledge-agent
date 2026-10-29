@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "question": "协作云企业版每次最多可以导出多少条任务？",
+  "history": [],
+  "answer": "现有资料不足以回答。\n已核验资料：\n[D06 · 2026-05-08] 本文未提供企业版导出上限。",
+  "status": "insufficient",
+  "citations": [
+    {
+      "doc_id": "D06",
+      "title": "协作云产品 FAQ（合成）",
+      "version_date": "2026-05-08",
+      "quote": "本文未提供企业版导出上限。"
+    }
+  ],
+  "gaps": [
+    "协作云企业版任务导出数量限制未在现有资料中规定"
+  ],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 5,
+  "tool_calls": 4,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 8542,
+    "completion_tokens": 309,
+    "total_tokens": 8851
+  },
+  "started_at": "2026-10-28T13:35:05.503927+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-7f218edb-ab3a-998b-8d8f-7236d389cc0e"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-f977a3b6-ec80-9433-9587-04b1fbf2474f"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-f089f320-7c4c-9cbd-ace2-16c0d66f0b09"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-7946b7ef-3a6c-9113-9491-b05bf5761082"
+    },
+    {
+      "step": 5,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-cdc4874f-d0d9-9cc4-979c-63b3c94489c2"
+    }
+  ],
+  "duration_ms": 9284,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 任务导出 数量限制",
+        "limit": 5
+      },
+      "reason": "问题明确指向协作云企业版的任务导出条数限制，需检索相关制度文档。",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云企业版 任务导出 数量限制",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 26.4685,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D06"
+      },
+      "reason": "检索命中唯一文档 D06，标题为协作云产品 FAQ，摘要提及标准版导出限制，但问题明确要求企业版，需读取全文确认是否包含企业版规定。",
+      "observation_summary": "读取 D06（2026-05-08），原文 88 字符。",
+      "result": {
+        "doc_id": "D06",
+        "title": "协作云产品 FAQ（合成）",
+        "version_date": "2026-05-08",
+        "synthetic": true,
+        "scope": "协作云标准版",
+        "content": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。导出入口位于项目页面右上角的“更多”菜单。只有项目管理员可以执行导出。本文未提供企业版导出上限。",
+        "keywords": [
+          "协作云",
+          "协作平台",
+          "导出",
+          "CSV",
+          "任务",
+          "collabcloud",
+          "export"
+        ],
+        "facts": [
+          {
+            "key": "collabcloud.standard.export_limit",
+            "value": "5000 条",
+            "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+          },
+          {
+            "key": "collabcloud.standard.export_menu",
+            "value": "更多",
+            "quote": "导出入口位于项目页面右上角的“更多”菜单。"
+          },
+          {
+            "key": "collabcloud.standard.export_permission",
+            "value": "项目管理员",
+            "quote": "只有项目管理员可以执行导出。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 任务导出 数量限制",
+        "limit": 5
+      },
+      "reason": "D06 明确声明未提供企业版导出上限，需另寻专门规定企业版的文档。",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云企业版 任务导出 数量限制",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 26.4685,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 4,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 导出限制 任务数量",
+        "limit": 5
+      },
+      "reason": "D06 明确声明未提供企业版导出上限，需改写查询以避开标准版干扰、聚焦企业版专属规定。",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云企业版 导出限制 任务数量",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 24.8864,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient",
+        "citations": [
+          {
+            "doc_id": "D06",
+            "quote": "本文未提供企业版导出上限。"
+          }
+        ],
+        "gaps": [
+          "协作云企业版任务导出数量限制未在现有资料中规定"
+        ]
+      },
+      "reason": "D06 明确声明未提供企业版导出上限，且多次检索仅命中该文档，无其他企业版相关文档可读取。",
+      "observation_summary": "输出通过校验，状态 insufficient。",
+      "result": {
+        "accepted": true,
+        "status": "insufficient"
+      }
+    }
+  ]
+}

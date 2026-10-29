@@ -1,0 +1,25 @@
+{
+  "id": "context",
+  "requirement": "结合上下文处理追问，历史回答不能当作知识库证据",
+  "question": "那连续登录失败 3 次怎么办？",
+  "history": [
+    {
+      "role": "user",
+      "content": "首次使用企业 VPN 怎么操作？"
+    },
+    {
+      "role": "assistant",
+      "content": "安装公司批准的客户端，用企业账号登录并完成多因素认证。"
+    }
+  ],
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D03"
+    ],
+    "answer_contains": [
+      "15 分钟",
+      "IT 服务台"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"step": 1, "action": "model_error", "arguments": {}, "reason": "模型请求未成功。", "observation_summary": "失败 http_400：模型服务返回 HTTP 400，请检查配置或稍后重试。", "result": {"error": {"code": "http_400", "message": "模型服务返回 HTTP 400，请检查配置或稍后重试。", "retryable": false}}}

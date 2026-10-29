@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "history": [],
+  "answer": "模型服务异常，任务未完成。",
+  "status": "error",
+  "citations": [],
+  "gaps": [
+    "模型请求失败，未完成资料核验。"
+  ],
+  "clarification": "",
+  "termination_reason": "http_400",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 0
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "usage": {},
+  "started_at": "2026-10-28T12:52:55.430703+00:00",
+  "model_responses": [],
+  "duration_ms": 166,
+  "trace": [
+    {
+      "step": 1,
+      "action": "model_error",
+      "arguments": {},
+      "reason": "模型请求未成功。",
+      "observation_summary": "失败 http_400：模型服务返回 HTTP 400，请检查配置或稍后重试。",
+      "result": {
+        "error": {
+          "code": "http_400",
+          "message": "模型服务返回 HTTP 400，请检查配置或稍后重试。",
+          "retryable": false
+        }
+      }
+    }
+  ]
+}

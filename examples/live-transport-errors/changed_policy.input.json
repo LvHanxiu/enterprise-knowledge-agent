@@ -1,0 +1,19 @@
+{
+  "id": "changed_policy",
+  "requirement": "替换文档内容后答案随原文变化",
+  "question": "报销期限是多少天？",
+  "data": "data/changed_policy.json",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D01"
+    ],
+    "answer_contains": [
+      "45 天"
+    ],
+    "answer_excludes": [
+      "30 天",
+      "15 天"
+    ]
+  }
+}

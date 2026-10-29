@@ -1,0 +1,11 @@
+{
+  "id": "clarification",
+  "requirement": "没有主题和历史时应追问",
+  "question": "那个要多久？",
+  "expected": {
+    "status": "needs_clarification",
+    "actions": [
+      "clarify"
+    ]
+  }
+}

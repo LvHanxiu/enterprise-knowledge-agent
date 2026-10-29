@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "question": "协作云标准版导出任务的上限和权限是什么？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D06 · 2026-05-08] 协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。\n[D06 · 2026-05-08] 只有项目管理员可以执行导出。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D06",
+      "title": "协作云产品 FAQ（合成）",
+      "version_date": "2026-05-08",
+      "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+    },
+    {
+      "doc_id": "D06",
+      "title": "协作云产品 FAQ（合成）",
+      "version_date": "2026-05-08",
+      "quote": "只有项目管理员可以执行导出。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 4155,
+    "completion_tokens": 217,
+    "total_tokens": 4372
+  },
+  "started_at": "2026-10-28T13:32:12.006625+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-2c93d012-3f81-9670-b1f7-bd6ebd74027d"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-8eb79274-c89c-9e0c-9cd0-fe0e087ac6f4"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-dc9285a9-6531-926c-b366-3d6473e734dd"
+    }
+  ],
+  "duration_ms": 6449,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "协作云标准版 导出任务 上限 权限",
+        "limit": 5
+      },
+      "reason": "问题聚焦协作云标准版导出任务的上限与权限，需检索匹配制度",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云标准版 导出任务 上限 权限",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 31.215,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D06"
+      },
+      "reason": "检索命中唯一文档 D06，摘要提及导出上限为 5000 条，需读取全文确认是否包含权限说明及完整上下文",
+      "observation_summary": "读取 D06（2026-05-08），原文 88 字符。",
+      "result": {
+        "doc_id": "D06",
+        "title": "协作云产品 FAQ（合成）",
+        "version_date": "2026-05-08",
+        "synthetic": true,
+        "scope": "协作云标准版",
+        "content": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。导出入口位于项目页面右上角的“更多”菜单。只有项目管理员可以执行导出。本文未提供企业版导出上限。",
+        "keywords": [
+          "协作云",
+          "协作平台",
+          "导出",
+          "CSV",
+          "任务",
+          "collabcloud",
+          "export"
+        ],
+        "facts": [
+          {
+            "key": "collabcloud.standard.export_limit",
+            "value": "5000 条",
+            "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+          },
+          {
+            "key": "collabcloud.standard.export_menu",
+            "value": "更多",
+            "quote": "导出入口位于项目页面右上角的“更多”菜单。"
+          },
+          {
+            "key": "collabcloud.standard.export_permission",
+            "value": "项目管理员",
+            "quote": "只有项目管理员可以执行导出。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D06",
+            "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+          },
+          {
+            "doc_id": "D06",
+            "quote": "只有项目管理员可以执行导出。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "D06 全文明确说明协作云标准版导出任务上限为 5000 条、权限仅限项目管理员，且适用范围与问题完全匹配。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "question": "离职时剩余年假如何折算？",
+  "history": [],
+  "answer": "现有资料不足以回答。\n已核验资料：\n[D04 · 2026-04-15] 本文未规定离职时剩余年假的折算方式。",
+  "status": "insufficient",
+  "citations": [
+    {
+      "doc_id": "D04",
+      "title": "年假申请制度（合成）",
+      "version_date": "2026-04-15",
+      "quote": "本文未规定离职时剩余年假的折算方式。"
+    }
+  ],
+  "gaps": [
+    "离职时剩余年假如何折算"
+  ],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 5,
+  "tool_calls": 4,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 8038,
+    "completion_tokens": 278,
+    "total_tokens": 8316
+  },
+  "started_at": "2026-10-28T13:35:14.793520+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-d336cb3c-3fc5-9b04-999b-d2b8279bfec3"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-0b487141-e88b-9881-b9ab-033e1552da31"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-874e8d8f-44ce-9059-8e44-e66b8e85d1d3"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-c17c2a76-90c4-95f3-933e-1fad3f5beb62"
+    },
+    {
+      "step": 5,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-853c43d3-c579-9c28-8c53-1470c281fb96"
+    }
+  ],
+  "duration_ms": 8712,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "离职 年假 折算",
+        "limit": 5
+      },
+      "reason": "问题聚焦离职时年假折算规则，需检索相关制度文档",
+      "observation_summary": "命中 1 份文档；返回：D04",
+      "result": {
+        "query": "离职 年假 折算",
+        "hits": [
+          {
+            "doc_id": "D04",
+            "title": "年假申请制度（合成）",
+            "version_date": "2026-04-15",
+            "snippet": "本文未规定离职时剩余年假的折算方式。",
+            "score": 12.2715,
+            "fact_keys": [
+              "leave.application",
+              "leave.balance"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D04"
+      },
+      "reason": "摘要称未规定离职年假折算，需核验正文是否确实无相关条款",
+      "observation_summary": "读取 D04（2026-04-15），原文 78 字符。",
+      "result": {
+        "doc_id": "D04",
+        "title": "年假申请制度（合成）",
+        "version_date": "2026-04-15",
+        "synthetic": true,
+        "scope": "全体正式员工",
+        "content": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。年假余额可在员工自助平台的“假期账户”中查询。本文未规定离职时剩余年假的折算方式。",
+        "keywords": [
+          "年假",
+          "年休假",
+          "带薪休假",
+          "申请",
+          "提前",
+          "余额",
+          "annual leave",
+          "paid leave"
+        ],
+        "facts": [
+          {
+            "key": "leave.application",
+            "value": "提前 3 个工作日",
+            "quote": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。"
+          },
+          {
+            "key": "leave.balance",
+            "value": "假期账户",
+            "quote": "年假余额可在员工自助平台的“假期账户”中查询。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "search",
+      "arguments": {
+        "query": "离职 年假 结算 补偿",
+        "limit": 5
+      },
+      "reason": "D04 明确声明未规定离职年假折算，需改写查询尝试检索其他可能涵盖该事项的制度文档",
+      "observation_summary": "命中 1 份文档；返回：D04",
+      "result": {
+        "query": "离职 年假 结算 补偿",
+        "hits": [
+          {
+            "doc_id": "D04",
+            "title": "年假申请制度（合成）",
+            "version_date": "2026-04-15",
+            "snippet": "本文未规定离职时剩余年假的折算方式。",
+            "score": 10.6151,
+            "fact_keys": [
+              "leave.application",
+              "leave.balance"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 4,
+      "action": "search",
+      "arguments": {
+        "query": "员工离职管理办法 年假 折算",
+        "limit": 5
+      },
+      "reason": "D04明确未规定离职年假折算，需检索更可能涵盖离职结算事项的综合管理制度",
+      "observation_summary": "命中 1 份文档；返回：D04",
+      "result": {
+        "query": "员工离职管理办法 年假 折算",
+        "hits": [
+          {
+            "doc_id": "D04",
+            "title": "年假申请制度（合成）",
+            "version_date": "2026-04-15",
+            "snippet": "本文未规定离职时剩余年假的折算方式。",
+            "score": 12.2715,
+            "fact_keys": [
+              "leave.application",
+              "leave.balance"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient",
+        "citations": [
+          {
+            "doc_id": "D04",
+            "quote": "本文未规定离职时剩余年假的折算方式。"
+          }
+        ],
+        "gaps": [
+          "离职时剩余年假如何折算"
+        ]
+      },
+      "reason": "已检索并读取唯一相关文档 D04，其正文明确声明未规定离职年假折算方式，且改写多次查询均仅命中该文档，无其他候选制度覆盖该事项。",
+      "observation_summary": "输出通过校验，状态 insufficient。",
+      "result": {
+        "accepted": true,
+        "status": "insufficient"
+      }
+    }
+  ]
+}

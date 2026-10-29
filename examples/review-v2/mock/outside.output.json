@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "question": "公司餐补每天多少钱？",
+  "history": [],
+  "answer": "现有资料不足以回答。",
+  "status": "insufficient",
+  "citations": [],
+  "gaps": [
+    "预置资料外场景：合成知识库没有餐补制度，需补充相应资料。"
+  ],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "mock",
+    "name": "offline-scenario:outside"
+  },
+  "validation_scope": "仅运行所选离线场景，不验证自然语言理解或决策能力",
+  "usage": {},
+  "started_at": "2026-10-28T13:29:22.686061+00:00",
+  "model_responses": [],
+  "duration_ms": 0,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "公司餐补每天多少钱？",
+        "limit": 5
+      },
+      "reason": "离线场景：检索餐补资料。",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "公司餐补每天多少钱？",
+        "hits": [],
+        "total": 0,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "search",
+      "arguments": {
+        "query": "员工餐费补贴标准",
+        "limit": 5
+      },
+      "reason": "离线场景：执行预置补充检索。",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "员工餐费补贴标准",
+        "hits": [],
+        "total": 0,
+        "truncated": false
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient",
+        "citations": [],
+        "gaps": [
+          "预置资料外场景：合成知识库没有餐补制度，需补充相应资料。"
+        ]
+      },
+      "reason": "离线场景：输出预置资料缺口。",
+      "observation_summary": "输出通过校验，状态 insufficient。",
+      "result": {
+        "accepted": true,
+        "status": "insufficient"
+      }
+    }
+  ]
+}

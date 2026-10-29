@@ -1,0 +1,12 @@
+{
+  "id": "tool_limit",
+  "requirement": "达到工具调用上限明确未完成",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "max_tool_calls": 0,
+  "expected": {
+    "status": "incomplete",
+    "answer_contains": [
+      "未完成"
+    ]
+  }
+}

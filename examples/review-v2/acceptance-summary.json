@@ -1,0 +1,1148 @@
+{
+  "revision": "review-v2",
+  "model": "qwen-plus",
+  "total": 24,
+  "passed": 24,
+  "scope": "最新整批23/24；tool_limit因网络错误失败，针对复测1/1；逐项合计24/24。Mock不用于语义验收。",
+  "batch_report": "live/report.json",
+  "retry_report": "live-retry/report.json",
+  "cases": [
+    {
+      "id": "normal",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "多因素认证"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "normal.output.json",
+      "trace": "live/normal.trace.jsonl",
+      "source": "live/normal.output.json",
+      "duration_ms": 5159,
+      "citations": [
+        {
+          "doc_id": "D03",
+          "title": "企业 VPN 使用指南（合成）",
+          "version_date": "2026-03-01",
+          "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+        }
+      ]
+    },
+    {
+      "id": "conflict",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "answer_contains:确认": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天",
+          "确认"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "conflict",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish",
+        "finish"
+      ],
+      "steps": 5,
+      "tool_calls": 3,
+      "output": "conflict.output.json",
+      "trace": "live/conflict.trace.jsonl",
+      "source": "live/conflict.output.json",
+      "duration_ms": 11863,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+        },
+        {
+          "doc_id": "D02",
+          "title": "费用报销操作指引（合成）",
+          "version_date": "2026-02-05",
+          "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。"
+        }
+      ]
+    },
+    {
+      "id": "outside",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:不足": true,
+        "action:search": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "insufficient",
+        "answer_contains": [
+          "不足"
+        ],
+        "actions": [
+          "search"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "search",
+        "search",
+        "search",
+        "finish"
+      ],
+      "steps": 5,
+      "tool_calls": 4,
+      "output": "outside.output.json",
+      "trace": "live/outside.trace.jsonl",
+      "source": "live/outside.output.json",
+      "duration_ms": 7987,
+      "citations": []
+    },
+    {
+      "id": "paraphrase",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天"
+        ]
+      },
+      "actual_status": "conflict",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "paraphrase.output.json",
+      "trace": "live/paraphrase.trace.jsonl",
+      "source": "live/paraphrase.output.json",
+      "duration_ms": 8731,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+        },
+        {
+          "doc_id": "D02",
+          "title": "费用报销操作指引（合成）",
+          "version_date": "2026-02-05",
+          "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:15 分钟": true,
+        "answer_contains:IT 服务台": true,
+        "citation:D03": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "15 分钟",
+          "IT 服务台"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "context.output.json",
+      "trace": "live/context.trace.jsonl",
+      "source": "live/context.output.json",
+      "duration_ms": 5789,
+      "citations": [
+        {
+          "doc_id": "D03",
+          "title": "企业 VPN 使用指南（合成）",
+          "version_date": "2026-03-01",
+          "quote": "VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。"
+        }
+      ]
+    },
+    {
+      "id": "tool_recovery",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "tool_error_observed": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "多因素认证"
+        ],
+        "has_tool_error": true
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "tool_recovery.output.json",
+      "trace": "live/tool_recovery.trace.jsonl",
+      "source": "live/tool_recovery.output.json",
+      "duration_ms": 6728,
+      "citations": [
+        {
+          "doc_id": "D03",
+          "title": "企业 VPN 使用指南（合成）",
+          "version_date": "2026-03-01",
+          "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+        }
+      ]
+    },
+    {
+      "id": "tool_failure",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "tool_error_observed": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": [
+          "insufficient",
+          "incomplete"
+        ],
+        "has_tool_error": true
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "search",
+        "finish"
+      ],
+      "steps": 5,
+      "tool_calls": 4,
+      "output": "tool_failure.output.json",
+      "trace": "live/tool_failure.trace.jsonl",
+      "source": "live/tool_failure.output.json",
+      "duration_ms": 7800,
+      "citations": []
+    },
+    {
+      "id": "missing_scope",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_excludes:5000": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": [
+          "insufficient",
+          "needs_clarification"
+        ],
+        "answer_excludes": [
+          "5000"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "search",
+        "search",
+        "finish"
+      ],
+      "steps": 5,
+      "tool_calls": 4,
+      "output": "missing_scope.output.json",
+      "trace": "live/missing_scope.trace.jsonl",
+      "source": "live/missing_scope.output.json",
+      "duration_ms": 9284,
+      "citations": [
+        {
+          "doc_id": "D06",
+          "title": "协作云产品 FAQ（合成）",
+          "version_date": "2026-05-08",
+          "quote": "本文未提供企业版导出上限。"
+        }
+      ]
+    },
+    {
+      "id": "missing_rule",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_excludes:3 个工作日": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "insufficient",
+        "answer_excludes": [
+          "3 个工作日"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "search",
+        "search",
+        "finish"
+      ],
+      "steps": 5,
+      "tool_calls": 4,
+      "output": "missing_rule.output.json",
+      "trace": "live/missing_rule.trace.jsonl",
+      "source": "live/missing_rule.output.json",
+      "duration_ms": 8712,
+      "citations": [
+        {
+          "doc_id": "D04",
+          "title": "年假申请制度（合成）",
+          "version_date": "2026-04-15",
+          "quote": "本文未规定离职时剩余年假的折算方式。"
+        }
+      ]
+    },
+    {
+      "id": "clarification",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "action:clarify": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "needs_clarification",
+        "actions": [
+          "clarify"
+        ]
+      },
+      "actual_status": "needs_clarification",
+      "actions": [
+        "clarify"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "clarification.output.json",
+      "trace": "live/clarification.trace.jsonl",
+      "source": "live/clarification.output.json",
+      "duration_ms": 2067,
+      "citations": []
+    },
+    {
+      "id": "single_policy",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_excludes:15 天": true,
+        "answer_excludes:45 天": true,
+        "citation:D01": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "30 天"
+        ],
+        "answer_excludes": [
+          "15 天",
+          "45 天"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "single_policy.output.json",
+      "trace": "live/single_policy.trace.jsonl",
+      "source": "live/single_policy.output.json",
+      "duration_ms": 4891,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+        }
+      ]
+    },
+    {
+      "id": "changed_policy",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:45 天": true,
+        "answer_excludes:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D01": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "45 天"
+        ],
+        "answer_excludes": [
+          "30 天",
+          "15 天"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "changed_policy.output.json",
+      "trace": "live/changed_policy.trace.jsonl",
+      "source": "live/changed_policy.output.json",
+      "duration_ms": 4440,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "员工费用报销应在费用发生之日起 45 天内提交申请。"
+        }
+      ]
+    },
+    {
+      "id": "step_limit",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "incomplete",
+        "answer_contains": [
+          "未完成"
+        ]
+      },
+      "actual_status": "incomplete",
+      "actions": [
+        "search"
+      ],
+      "steps": 1,
+      "tool_calls": 1,
+      "output": "step_limit.output.json",
+      "trace": "live/step_limit.trace.jsonl",
+      "source": "live/step_limit.output.json",
+      "duration_ms": 1176,
+      "citations": []
+    },
+    {
+      "id": "tool_limit",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "incomplete",
+        "answer_contains": [
+          "未完成"
+        ]
+      },
+      "actual_status": "incomplete",
+      "actions": [
+        "search"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "tool_limit.output.json",
+      "trace": "live-retry/tool_limit.trace.jsonl",
+      "source": "live-retry/tool_limit.output.json",
+      "duration_ms": 1594,
+      "citations": []
+    },
+    {
+      "id": "product",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:5000 条": true,
+        "answer_contains:项目管理员": true,
+        "citation:D06": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D06"
+        ],
+        "answer_contains": [
+          "5000 条",
+          "项目管理员"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "product.output.json",
+      "trace": "live/product.trace.jsonl",
+      "source": "live/product.output.json",
+      "duration_ms": 6222,
+      "citations": [
+        {
+          "doc_id": "D06",
+          "title": "协作云产品 FAQ（合成）",
+          "version_date": "2026-05-08",
+          "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+        },
+        {
+          "doc_id": "D06",
+          "title": "协作云产品 FAQ（合成）",
+          "version_date": "2026-05-08",
+          "quote": "只有项目管理员可以执行导出。"
+        }
+      ]
+    },
+    {
+      "id": "leave",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:3 个工作日": true,
+        "citation:D04": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D04"
+        ],
+        "answer_contains": [
+          "3 个工作日"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "leave.output.json",
+      "trace": "live/leave.trace.jsonl",
+      "source": "live/leave.output.json",
+      "duration_ms": 5449,
+      "citations": [
+        {
+          "doc_id": "D04",
+          "title": "年假申请制度（合成）",
+          "version_date": "2026-04-15",
+          "quote": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。"
+        }
+      ]
+    },
+    {
+      "id": "no_facts_conflict",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "answer_contains:确认": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天",
+          "确认"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "conflict",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "no_facts_conflict.output.json",
+      "trace": "live/no_facts_conflict.trace.jsonl",
+      "source": "live/no_facts_conflict.output.json",
+      "duration_ms": 8607,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "D01",
+          "version_date": "2026-01-10",
+          "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。"
+        },
+        {
+          "doc_id": "D02",
+          "title": "D02",
+          "version_date": "2026-02-05",
+          "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。版本日期较新本身不代表废止其他制度。"
+        }
+      ]
+    },
+    {
+      "id": "content_only_change",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:45 天": true,
+        "answer_excludes:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D01": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "45 天"
+        ],
+        "answer_excludes": [
+          "30 天",
+          "15 天"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "content_only_change.output.json",
+      "trace": "live/content_only_change.trace.jsonl",
+      "source": "live/content_only_change.output.json",
+      "duration_ms": 4915,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "员工费用报销应在费用发生之日起 45 天内提交申请。"
+        }
+      ]
+    },
+    {
+      "id": "unindexed_sentence",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:OA 系统": true,
+        "answer_contains:费用报销": true,
+        "answer_excludes:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D01": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "OA 系统",
+          "费用报销"
+        ],
+        "answer_excludes": [
+          "30 天",
+          "15 天"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "unindexed_sentence.output.json",
+      "trace": "live/unindexed_sentence.trace.jsonl",
+      "source": "live/unindexed_sentence.output.json",
+      "duration_ms": 4714,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "费用报销申请应通过 OA 系统的“费用报销”入口提交。"
+        }
+      ]
+    },
+    {
+      "id": "scoped_policies",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:总部员工": true,
+        "answer_contains:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D01": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "总部员工",
+          "30 天"
+        ],
+        "answer_excludes": [
+          "15 天"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "scoped_policies.output.json",
+      "trace": "live/scoped_policies.trace.jsonl",
+      "source": "live/scoped_policies.output.json",
+      "duration_ms": 5000,
+      "citations": [
+        {
+          "doc_id": "D01",
+          "title": "总部员工费用报销办法（合成）",
+          "version_date": "2026-01-10",
+          "quote": "总部员工费用报销应在费用发生之日起 30 天内提交申请。"
+        }
+      ]
+    },
+    {
+      "id": "materials",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:电子发票或纸质发票扫描件": true,
+        "answer_contains:费用事由": true,
+        "answer_excludes:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D05": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D05"
+        ],
+        "answer_contains": [
+          "电子发票或纸质发票扫描件",
+          "费用事由"
+        ],
+        "answer_excludes": [
+          "30 天",
+          "15 天"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "materials.output.json",
+      "trace": "live/materials.trace.jsonl",
+      "source": "live/materials.output.json",
+      "duration_ms": 5253,
+      "citations": [
+        {
+          "doc_id": "D05",
+          "title": "报销发票材料说明（合成）",
+          "version_date": "2026-04-20",
+          "quote": "报销申请需附真实有效的电子发票或纸质发票扫描件，并填写费用事由。发票抬头应与公司登记名称一致。"
+        }
+      ]
+    },
+    {
+      "id": "explicit_reference",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:公司批准的客户端": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "公司批准的客户端",
+          "多因素认证"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "explicit_reference.output.json",
+      "trace": "live/explicit_reference.trace.jsonl",
+      "source": "live/explicit_reference.output.json",
+      "duration_ms": 5567,
+      "citations": [
+        {
+          "doc_id": "D03",
+          "title": "企业 VPN 使用指南（合成）",
+          "version_date": "2026-03-01",
+          "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+        }
+      ]
+    },
+    {
+      "id": "cash_out",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:不足": true,
+        "answer_excludes:3 个工作日": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "insufficient",
+        "answer_contains": [
+          "不足"
+        ],
+        "answer_excludes": [
+          "3 个工作日"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "cash_out.output.json",
+      "trace": "live/cash_out.trace.jsonl",
+      "source": "live/cash_out.output.json",
+      "duration_ms": 5062,
+      "citations": []
+    },
+    {
+      "id": "raw_product_scope",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:企业版": true,
+        "answer_contains:10000 条": true,
+        "answer_excludes:5000": true,
+        "citation:D08": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D08"
+        ],
+        "answer_contains": [
+          "企业版",
+          "10000 条"
+        ],
+        "answer_excludes": [
+          "5000"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "raw_product_scope.output.json",
+      "trace": "live/raw_product_scope.trace.jsonl",
+      "source": "live/raw_product_scope.output.json",
+      "duration_ms": 6700,
+      "citations": [
+        {
+          "doc_id": "D08",
+          "title": "D08",
+          "version_date": "2026-10-01",
+          "quote": "协作云企业版支持将项目任务导出为 CSV 文件，每次最多导出 10000 条任务。此上限仅适用于企业版，不适用于标准版。"
+        }
+      ]
+    }
+  ]
+}

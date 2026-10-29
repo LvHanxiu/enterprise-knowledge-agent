@@ -1,0 +1,1 @@
+{"step": 1, "action": "clarify", "arguments": {"question": "请问‘那个’具体指哪项流程、制度或事项？例如：员工入职审批、合同续签、费用报销等？", "citations": [], "gaps": ["指代对象不明确"]}, "reason": "问题中‘那个’无明确指代，无法定位对应制度或流程。", "observation_summary": "输出通过校验，状态 needs_clarification。", "result": {"accepted": true, "status": "needs_clarification"}}

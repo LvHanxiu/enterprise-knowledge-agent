@@ -1,0 +1,1 @@
+{"step": 1, "action": "search", "arguments": {"query": "首次使用企业 VPN 怎么操作？", "limit": 5}, "reason": "先检索与当前问题有关的资料。", "observation_summary": "失败 tool_limit：工具调用次数已达上限。", "result": {"error": {"code": "tool_limit", "message": "工具调用次数已达上限。", "retryable": false}}}

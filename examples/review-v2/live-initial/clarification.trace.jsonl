@@ -1,0 +1,1 @@
+{"step": 1, "action": "clarify", "arguments": {"question": "请问‘那个’具体指哪项业务或流程？例如：入职审批、合同签署、系统权限开通等？", "citations": [], "gaps": ["业务对象不明确"]}, "reason": "问题中‘那个’指代不明，无法确定对应的具体业务或流程。", "observation_summary": "输出通过校验，状态 needs_clarification。", "result": {"accepted": true, "status": "needs_clarification"}}

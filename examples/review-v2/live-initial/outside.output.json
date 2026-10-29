@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0",
+  "question": "公司餐补每天多少钱？",
+  "history": [],
+  "answer": "现有资料不足以回答。",
+  "status": "insufficient",
+  "citations": [],
+  "gaps": [
+    "未检索到任何关于餐补标准的制度文档"
+  ],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 5,
+  "tool_calls": 4,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 6563,
+    "completion_tokens": 244,
+    "total_tokens": 6807
+  },
+  "started_at": "2026-10-28T13:31:05.035227+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-82394210-876a-9a2f-9be9-2ec9902b65ab"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-693536fd-33aa-993d-af82-003564b826d8"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-d9eb82c0-a22d-99b7-8d79-f1592bd65da9"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-209caec3-e045-95bc-adde-ac18a2e765da"
+    },
+    {
+      "step": 5,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-d6088774-730f-94b0-9890-111ee498dadc"
+    }
+  ],
+  "duration_ms": 7636,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "餐补标准 金额 每天",
+        "limit": 5
+      },
+      "reason": "问题明确询问每日餐补金额，需检索相关制度文件",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "餐补标准 金额 每天",
+        "hits": [],
+        "total": 0,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "search",
+      "arguments": {
+        "query": "餐补 标准 金额",
+        "limit": 5
+      },
+      "reason": "首次检索无结果，扩大关键词范围，去掉‘每天’限定以匹配可能存在的综合标准文档",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "餐补 标准 金额",
+        "hits": [],
+        "total": 0,
+        "truncated": false
+      }
+    },
+    {
+      "step": 3,
+      "action": "search",
+      "arguments": {
+        "query": "员工福利 餐饮补贴 标准",
+        "limit": 5
+      },
+      "reason": "前两次检索无结果，需更换更通用的政策类关键词组合，覆盖可能归类在福利或补贴总则下的文档",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "员工福利 餐饮补贴 标准",
+        "hits": [],
+        "total": 0,
+        "truncated": false
+      }
+    },
+    {
+      "step": 4,
+      "action": "search",
+      "arguments": {
+        "query": "餐补 补贴 发放标准",
+        "limit": 5
+      },
+      "reason": "前三次检索均无命中，需更换同义关键词组合，‘发放标准’更贴近制度文件常用表述",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "餐补 补贴 发放标准",
+        "hits": [],
+        "total": 0,
+        "truncated": false
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient",
+        "citations": [],
+        "gaps": [
+          "未检索到任何关于餐补标准的制度文档"
+        ]
+      },
+      "reason": "四次不同关键词组合的检索均未命中任何相关文档，确认知识库中缺失该信息",
+      "observation_summary": "输出通过校验，状态 insufficient。",
+      "result": {
+        "accepted": true,
+        "status": "insufficient"
+      }
+    }
+  ]
+}

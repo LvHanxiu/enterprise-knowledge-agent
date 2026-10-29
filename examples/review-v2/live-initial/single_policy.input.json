@@ -1,0 +1,19 @@
+{
+  "id": "single_policy",
+  "requirement": "仅有D01且无冲突时按D01回答",
+  "question": "报销期限是多少天？",
+  "data": "data/single_policy.json",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D01"
+    ],
+    "answer_contains": [
+      "30 天"
+    ],
+    "answer_excludes": [
+      "15 天",
+      "45 天"
+    ]
+  }
+}

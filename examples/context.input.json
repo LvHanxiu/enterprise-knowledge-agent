@@ -1,0 +1,7 @@
+{
+  "question": "那连续登录失败 3 次怎么办？",
+  "history": [
+    {"role": "user", "content": "首次使用企业 VPN 怎么操作？"},
+    {"role": "assistant", "content": "安装公司批准的客户端，用企业账号登录并完成多因素认证。"}
+  ]
+}

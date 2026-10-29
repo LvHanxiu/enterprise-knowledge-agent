@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "question": "协作云标准版导出任务的上限和权限是什么？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D06 · 2026-05-08] 协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。\n[D06 · 2026-05-08] 只有项目管理员可以执行导出。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D06",
+      "title": "协作云产品 FAQ（合成）",
+      "version_date": "2026-05-08",
+      "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+    },
+    {
+      "doc_id": "D06",
+      "title": "协作云产品 FAQ（合成）",
+      "version_date": "2026-05-08",
+      "quote": "只有项目管理员可以执行导出。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "usage": {
+    "prompt_tokens": 4211,
+    "completion_tokens": 200,
+    "total_tokens": 4411
+  },
+  "started_at": "2026-10-28T12:59:52.655730+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-70c79de7-201a-99f4-a0d1-fcd09067d66a"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-14d18d69-0f88-9fcf-8840-5685be56be08"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-7d0601f0-8afe-9129-bc37-3d406fc55bce"
+    }
+  ],
+  "duration_ms": 5956,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "协作云标准版 导出任务 上限 权限",
+        "limit": 5
+      },
+      "reason": "问题聚焦协作云标准版导出任务的上限与权限，需检索匹配制度",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云标准版 导出任务 上限 权限",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 31.215,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ]
+          }
+        ],
+        "total": 1
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D06"
+      },
+      "reason": "检索命中一份同主题文档，需读取全文核验导出上限与权限细节",
+      "observation_summary": "读取 D06（2026-05-08），原文 88 字符。",
+      "result": {
+        "doc_id": "D06",
+        "title": "协作云产品 FAQ（合成）",
+        "version_date": "2026-05-08",
+        "synthetic": true,
+        "scope": "协作云标准版",
+        "content": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。导出入口位于项目页面右上角的“更多”菜单。只有项目管理员可以执行导出。本文未提供企业版导出上限。",
+        "keywords": [
+          "协作云",
+          "协作平台",
+          "导出",
+          "CSV",
+          "任务",
+          "collabcloud",
+          "export"
+        ],
+        "facts": [
+          {
+            "key": "collabcloud.standard.export_limit",
+            "value": "5000 条",
+            "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+          },
+          {
+            "key": "collabcloud.standard.export_menu",
+            "value": "更多",
+            "quote": "导出入口位于项目页面右上角的“更多”菜单。"
+          },
+          {
+            "key": "collabcloud.standard.export_permission",
+            "value": "项目管理员",
+            "quote": "只有项目管理员可以执行导出。"
+          }
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D06",
+            "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+          },
+          {
+            "doc_id": "D06",
+            "quote": "只有项目管理员可以执行导出。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "已读取唯一命中文档 D06，其 facts 明确支持导出上限（5000 条）和权限（项目管理员），且无冲突或缺失",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

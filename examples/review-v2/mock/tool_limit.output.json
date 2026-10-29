@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "history": [],
+  "answer": "执行达到上限，任务未完成；请调整执行预算或缩小问题范围后重试。",
+  "status": "incomplete",
+  "citations": [],
+  "gaps": [
+    "工具调用次数达到上限，证据未充分核验。"
+  ],
+  "clarification": "",
+  "termination_reason": "tool_limit",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 0
+  },
+  "model": {
+    "mode": "mock",
+    "name": "offline-scenario:tool_limit"
+  },
+  "validation_scope": "仅运行所选离线场景，不验证自然语言理解或决策能力",
+  "usage": {},
+  "started_at": "2026-10-28T13:29:22.725304+00:00",
+  "model_responses": [],
+  "duration_ms": 0,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "首次使用企业 VPN 怎么操作？",
+        "limit": 5
+      },
+      "reason": "离线场景：执行 VPN 检索。",
+      "observation_summary": "失败 tool_limit：工具调用次数已达上限。",
+      "result": {
+        "error": {
+          "code": "tool_limit",
+          "message": "工具调用次数已达上限。",
+          "retryable": false
+        }
+      }
+    }
+  ]
+}

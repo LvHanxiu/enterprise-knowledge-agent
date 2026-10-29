@@ -1,0 +1,24 @@
+{
+  "id": "raw_product_scope",
+  "requirement": "普通文档没有scope或facts字段时从原文识别企业版范围和10000条上限",
+  "question": "协作云企业版每次最多可以导出多少条任务？",
+  "data": "data/review/raw_product_scope.json",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D08"
+    ],
+    "answer_contains": [
+      "企业版",
+      "10000 条"
+    ],
+    "answer_excludes": [
+      "5000"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

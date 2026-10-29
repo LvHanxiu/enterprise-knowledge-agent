@@ -1,0 +1,14 @@
+{
+  "id": "outside",
+  "requirement": "资料外问题必须承认缺口",
+  "question": "公司餐补每天多少钱？",
+  "expected": {
+    "status": "insufficient",
+    "answer_contains": [
+      "不足"
+    ],
+    "actions": [
+      "search"
+    ]
+  }
+}

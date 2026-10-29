@@ -1,0 +1,532 @@
+{
+  "scope": "同一最终实现的逐项真实模型验收；最近整批15/16，网络失败的tool_limit单独复测通过，原始记录全部保留。",
+  "mode": "live",
+  "model": "qwen-plus",
+  "total": 16,
+  "passed": 16,
+  "cases": [
+    {
+      "id": "normal",
+      "passed": true,
+      "status": "answered",
+      "source": "live/normal.output.json",
+      "trace": "live/normal.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 3,
+      "tool_calls": 2,
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 5098,
+      "citations": [
+        "D03"
+      ],
+      "usage": {
+        "prompt_tokens": 4120,
+        "completion_tokens": 163,
+        "total_tokens": 4283
+      }
+    },
+    {
+      "id": "conflict",
+      "passed": true,
+      "status": "conflict",
+      "source": "live/conflict.output.json",
+      "trace": "live/conflict.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "answer_contains:确认": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 4,
+      "tool_calls": 3,
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 7666,
+      "citations": [
+        "D01",
+        "D02"
+      ],
+      "usage": {
+        "prompt_tokens": 6269,
+        "completion_tokens": 254,
+        "total_tokens": 6523
+      }
+    },
+    {
+      "id": "outside",
+      "passed": true,
+      "status": "insufficient",
+      "source": "live/outside.output.json",
+      "trace": "live/outside.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:不足": true,
+        "action:search": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 4,
+      "tool_calls": 3,
+      "actions": [
+        "search",
+        "search",
+        "search",
+        "finish"
+      ],
+      "duration_ms": 5650,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 5064,
+        "completion_tokens": 170,
+        "total_tokens": 5234
+      }
+    },
+    {
+      "id": "paraphrase",
+      "passed": true,
+      "status": "conflict",
+      "source": "live/paraphrase.output.json",
+      "trace": "live/paraphrase.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 5,
+      "tool_calls": 4,
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 9890,
+      "citations": [
+        "D01",
+        "D02"
+      ],
+      "usage": {
+        "prompt_tokens": 8653,
+        "completion_tokens": 335,
+        "total_tokens": 8988
+      }
+    },
+    {
+      "id": "context",
+      "passed": true,
+      "status": "answered",
+      "source": "live/context.output.json",
+      "trace": "live/context.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:15 分钟": true,
+        "answer_contains:IT 服务台": true,
+        "citation:D03": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 3,
+      "tool_calls": 2,
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 5422,
+      "citations": [
+        "D03"
+      ],
+      "usage": {
+        "prompt_tokens": 4304,
+        "completion_tokens": 183,
+        "total_tokens": 4487
+      }
+    },
+    {
+      "id": "tool_recovery",
+      "passed": true,
+      "status": "answered",
+      "source": "live/tool_recovery.output.json",
+      "trace": "live/tool_recovery.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "tool_error_observed": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 4,
+      "tool_calls": 3,
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 6320,
+      "citations": [
+        "D03"
+      ],
+      "usage": {
+        "prompt_tokens": 5663,
+        "completion_tokens": 206,
+        "total_tokens": 5869
+      }
+    },
+    {
+      "id": "tool_failure",
+      "passed": true,
+      "status": "insufficient",
+      "source": "live/tool_failure.output.json",
+      "trace": "live/tool_failure.trace.jsonl",
+      "checks": {
+        "status": true,
+        "tool_error_observed": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 4,
+      "tool_calls": 3,
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 6785,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 5672,
+        "completion_tokens": 216,
+        "total_tokens": 5888
+      }
+    },
+    {
+      "id": "missing_scope",
+      "passed": true,
+      "status": "insufficient",
+      "source": "live/missing_scope.output.json",
+      "trace": "live/missing_scope.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_excludes:5000": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 4,
+      "tool_calls": 3,
+      "actions": [
+        "search",
+        "read",
+        "search",
+        "finish"
+      ],
+      "duration_ms": 7293,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 6177,
+        "completion_tokens": 246,
+        "total_tokens": 6423
+      }
+    },
+    {
+      "id": "missing_rule",
+      "passed": true,
+      "status": "insufficient",
+      "source": "live/missing_rule.output.json",
+      "trace": "live/missing_rule.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_excludes:3 个工作日": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 5,
+      "tool_calls": 4,
+      "actions": [
+        "search",
+        "read",
+        "search",
+        "search",
+        "finish"
+      ],
+      "duration_ms": 8336,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 7902,
+        "completion_tokens": 267,
+        "total_tokens": 8169
+      }
+    },
+    {
+      "id": "clarification",
+      "passed": true,
+      "status": "needs_clarification",
+      "source": "live/clarification.output.json",
+      "trace": "live/clarification.trace.jsonl",
+      "checks": {
+        "status": true,
+        "action:clarify": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 1,
+      "tool_calls": 0,
+      "actions": [
+        "clarify"
+      ],
+      "duration_ms": 1868,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 1131,
+        "completion_tokens": 68,
+        "total_tokens": 1199
+      }
+    },
+    {
+      "id": "single_policy",
+      "passed": true,
+      "status": "answered",
+      "source": "live/single_policy.output.json",
+      "trace": "live/single_policy.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_excludes:15 天": true,
+        "answer_excludes:45 天": true,
+        "citation:D01": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 3,
+      "tool_calls": 2,
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 4534,
+      "citations": [
+        "D01"
+      ],
+      "usage": {
+        "prompt_tokens": 3957,
+        "completion_tokens": 146,
+        "total_tokens": 4103
+      }
+    },
+    {
+      "id": "changed_policy",
+      "passed": true,
+      "status": "answered",
+      "source": "live/changed_policy.output.json",
+      "trace": "live/changed_policy.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:45 天": true,
+        "answer_excludes:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D01": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 3,
+      "tool_calls": 2,
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 4698,
+      "citations": [
+        "D01"
+      ],
+      "usage": {
+        "prompt_tokens": 3956,
+        "completion_tokens": 155,
+        "total_tokens": 4111
+      }
+    },
+    {
+      "id": "step_limit",
+      "passed": true,
+      "status": "incomplete",
+      "source": "live/step_limit.output.json",
+      "trace": "live/step_limit.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 1,
+      "tool_calls": 1,
+      "actions": [
+        "search"
+      ],
+      "duration_ms": 1143,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 1130,
+        "completion_tokens": 30,
+        "total_tokens": 1160
+      }
+    },
+    {
+      "id": "tool_limit",
+      "passed": true,
+      "status": "incomplete",
+      "source": "live-tool-limit-retry/tool_limit.output.json",
+      "trace": "live-tool-limit-retry/tool_limit.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 1,
+      "tool_calls": 0,
+      "actions": [
+        "search"
+      ],
+      "duration_ms": 1681,
+      "citations": [],
+      "usage": {
+        "prompt_tokens": 1136,
+        "completion_tokens": 38,
+        "total_tokens": 1174
+      }
+    },
+    {
+      "id": "product",
+      "passed": true,
+      "status": "answered",
+      "source": "live/product.output.json",
+      "trace": "live/product.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:5000 条": true,
+        "answer_contains:项目管理员": true,
+        "citation:D06": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 3,
+      "tool_calls": 2,
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 5956,
+      "citations": [
+        "D06",
+        "D06"
+      ],
+      "usage": {
+        "prompt_tokens": 4211,
+        "completion_tokens": 200,
+        "total_tokens": 4411
+      }
+    },
+    {
+      "id": "leave",
+      "passed": true,
+      "status": "answered",
+      "source": "live/leave.output.json",
+      "trace": "live/leave.trace.jsonl",
+      "checks": {
+        "status": true,
+        "answer_contains:3 个工作日": true,
+        "citation:D04": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "steps": 3,
+      "tool_calls": 2,
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "duration_ms": 5259,
+      "citations": [
+        "D04"
+      ],
+      "usage": {
+        "prompt_tokens": 4076,
+        "completion_tokens": 172,
+        "total_tokens": 4248
+      }
+    }
+  ],
+  "batch_report": "live/report.json",
+  "retry_report": "live-tool-limit-retry/report.json",
+  "mock_report": "mock/report.json",
+  "unit_test_log": "unit-tests.log"
+}

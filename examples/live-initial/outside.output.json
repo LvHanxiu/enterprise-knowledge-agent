@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "question": "公司餐补每天多少钱？",
+  "history": [],
+  "answer": "请问您所在公司名称或所属业务线是？不同子公司/事业部的餐补标准可能不同。",
+  "status": "needs_clarification",
+  "citations": [],
+  "gaps": [
+    "公司主体不明确，无法定位适用制度"
+  ],
+  "clarification": "请问您所在公司名称或所属业务线是？不同子公司/事业部的餐补标准可能不同。",
+  "termination_reason": "completed",
+  "steps": 4,
+  "tool_calls": 3,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "usage": {
+    "prompt_tokens": 3972,
+    "completion_tokens": 208,
+    "total_tokens": 4180
+  },
+  "started_at": "2026-10-28T12:47:34.717471+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-ff216558-da81-9531-8427-deaeb76198cb"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-81eaad94-525c-9c25-87c9-f27f2e6b873d"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-d86219df-7c88-91f4-89b9-de6f83d9677d"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-804b662e-4468-9a1f-8c99-f2ba66ebface"
+    }
+  ],
+  "duration_ms": 6863,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "公司餐补标准 金额",
+        "limit": 5
+      },
+      "reason": "问题明确询问餐补每日金额，需检索相关制度文件",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "公司餐补标准 金额",
+        "hits": [],
+        "total": 0
+      }
+    },
+    {
+      "step": 2,
+      "action": "search",
+      "arguments": {
+        "query": "员工餐补 标准 金额",
+        "limit": 5
+      },
+      "reason": "原检索无结果，改用更通用的关键词组合扩大覆盖范围",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "员工餐补 标准 金额",
+        "hits": [],
+        "total": 0
+      }
+    },
+    {
+      "step": 3,
+      "action": "search",
+      "arguments": {
+        "query": "餐补 发放标准 金额",
+        "limit": 5
+      },
+      "reason": "前两次检索无结果，需更换关键词组合，聚焦‘发放标准’和‘金额’核心要素",
+      "observation_summary": "命中 0 份文档；返回：",
+      "result": {
+        "query": "餐补 发放标准 金额",
+        "hits": [],
+        "total": 0
+      }
+    },
+    {
+      "step": 4,
+      "action": "clarify",
+      "arguments": {
+        "question": "请问您所在公司名称或所属业务线是？不同子公司/事业部的餐补标准可能不同。",
+        "citations": [],
+        "gaps": [
+          "公司主体不明确，无法定位适用制度"
+        ]
+      },
+      "reason": "三次检索均未命中任何文档，说明知识库中缺乏通用‘餐补’表述的制度，需明确公司主体以匹配具体制度文件。",
+      "observation_summary": "输出通过校验，状态 needs_clarification。",
+      "result": {
+        "accepted": true,
+        "status": "needs_clarification"
+      }
+    }
+  ]
+}

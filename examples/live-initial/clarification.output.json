@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "question": "那个要多久？",
+  "history": [],
+  "answer": "请问‘那个’具体指哪项流程、制度或事项？例如：员工入职审批、合同续签、费用报销等？",
+  "status": "needs_clarification",
+  "citations": [],
+  "gaps": [
+    "指代对象不明确"
+  ],
+  "clarification": "请问‘那个’具体指哪项流程、制度或事项？例如：员工入职审批、合同续签、费用报销等？",
+  "termination_reason": "completed",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "usage": {
+    "prompt_tokens": 852,
+    "completion_tokens": 73,
+    "total_tokens": 925
+  },
+  "started_at": "2026-10-28T12:48:31.799755+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-0d5966a9-4380-9a6c-800c-9d28329bd6cf"
+    }
+  ],
+  "duration_ms": 2064,
+  "trace": [
+    {
+      "step": 1,
+      "action": "clarify",
+      "arguments": {
+        "question": "请问‘那个’具体指哪项流程、制度或事项？例如：员工入职审批、合同续签、费用报销等？",
+        "citations": [],
+        "gaps": [
+          "指代对象不明确"
+        ]
+      },
+      "reason": "问题中‘那个’无明确指代，无法定位对应制度或流程。",
+      "observation_summary": "输出通过校验，状态 needs_clarification。",
+      "result": {
+        "accepted": true,
+        "status": "needs_clarification"
+      }
+    }
+  ]
+}

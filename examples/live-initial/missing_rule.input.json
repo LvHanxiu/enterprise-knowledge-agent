@@ -1,0 +1,15 @@
+{
+  "id": "missing_rule",
+  "requirement": "已找到相关文档但具体规则缺失，不得以无关事实代答",
+  "question": "离职时剩余年假如何折算？",
+  "expected": {
+    "status": "insufficient",
+    "answer_excludes": [
+      "3 个工作日"
+    ],
+    "actions": [
+      "search",
+      "read"
+    ]
+  }
+}

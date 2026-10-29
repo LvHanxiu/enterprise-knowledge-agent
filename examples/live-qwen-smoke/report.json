@@ -1,0 +1,90 @@
+{
+  "mode": "live",
+  "model": "qwen-plus",
+  "validation_scope": "真实模型决策与流程",
+  "total": 2,
+  "passed": 2,
+  "cases": [
+    {
+      "id": "normal",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "多因素认证"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "normal.output.json",
+      "trace": "normal.trace.jsonl"
+    },
+    {
+      "id": "conflict",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "answer_contains:确认": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天",
+          "确认"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "conflict",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "conflict.output.json",
+      "trace": "conflict.trace.jsonl"
+    }
+  ]
+}

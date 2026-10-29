@@ -1,0 +1,85 @@
+{
+  "mode": "live",
+  "model": "gpt-4.1-mini",
+  "validation_scope": "真实模型决策与流程",
+  "total": 2,
+  "passed": 0,
+  "cases": [
+    {
+      "id": "normal",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "answer_contains:多因素认证": false,
+        "citation:D03": false,
+        "action:search": false,
+        "action:read": false,
+        "action:finish": false,
+        "bounded_execution": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "多因素认证"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "error",
+      "actions": [
+        "model_error"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "normal.output.json",
+      "trace": "normal.trace.jsonl"
+    },
+    {
+      "id": "conflict",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "answer_contains:30 天": false,
+        "answer_contains:15 天": false,
+        "answer_contains:确认": false,
+        "citation:D01": false,
+        "citation:D02": false,
+        "action:search": false,
+        "action:read": false,
+        "bounded_execution": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天",
+          "确认"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "error",
+      "actions": [
+        "model_error"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "conflict.output.json",
+      "trace": "conflict.trace.jsonl"
+    }
+  ]
+}

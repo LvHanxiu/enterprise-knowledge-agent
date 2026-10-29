@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "question": "那连续登录失败 3 次怎么办？",
+  "history": [
+    {
+      "role": "user",
+      "content": "首次使用企业 VPN 怎么操作？"
+    },
+    {
+      "role": "assistant",
+      "content": "安装公司批准的客户端，用企业账号登录并完成多因素认证。"
+    }
+  ],
+  "answer": "根据已核验原文：\n[D03 · 2026-03-01] 首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。\n[D03 · 2026-03-01] VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。\n[D07 · 2026-06-01] 忘记企业账号密码时，可在统一登录页面选择“忘记密码”，通过已绑定的手机完成验证后设置新密码。\n[D07 · 2026-06-01] 无法使用已绑定手机时，应联系 IT 服务台进行身份核验。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D03",
+      "title": "企业 VPN 使用指南（合成）",
+      "version_date": "2026-03-01",
+      "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+    },
+    {
+      "doc_id": "D03",
+      "title": "企业 VPN 使用指南（合成）",
+      "version_date": "2026-03-01",
+      "quote": "VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。"
+    },
+    {
+      "doc_id": "D07",
+      "title": "企业账号密码重置 FAQ（合成）",
+      "version_date": "2026-06-01",
+      "quote": "忘记企业账号密码时，可在统一登录页面选择“忘记密码”，通过已绑定的手机完成验证后设置新密码。"
+    },
+    {
+      "doc_id": "D07",
+      "title": "企业账号密码重置 FAQ（合成）",
+      "version_date": "2026-06-01",
+      "quote": "无法使用已绑定手机时，应联系 IT 服务台进行身份核验。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 4,
+  "tool_calls": 3,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "mock",
+    "name": "offline-observation-mock"
+  },
+  "usage": {},
+  "started_at": "2026-10-28T12:52:45.602907+00:00",
+  "model_responses": [
+    {
+      "step": 1
+    },
+    {
+      "step": 2
+    },
+    {
+      "step": 3
+    },
+    {
+      "step": 4
+    }
+  ],
+  "duration_ms": 1,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "首次使用企业 VPN 怎么操作？ 那连续登录失败 3 次怎么办？",
+        "limit": 5
+      },
+      "reason": "先检索与当前问题有关的资料。",
+      "observation_summary": "命中 2 份文档；返回：D03, D07",
+      "result": {
+        "query": "首次使用企业 VPN 怎么操作？ 那连续登录失败 3 次怎么办？",
+        "hits": [
+          {
+            "doc_id": "D03",
+            "title": "企业 VPN 使用指南（合成）",
+            "version_date": "2026-03-01",
+            "snippet": "VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。",
+            "score": 26.0537,
+            "fact_keys": [
+              "vpn.setup",
+              "vpn.lockout"
+            ]
+          },
+          {
+            "doc_id": "D07",
+            "title": "企业账号密码重置 FAQ（合成）",
+            "version_date": "2026-06-01",
+            "snippet": "忘记企业账号密码时，可在统一登录页面选择“忘记密码”，通过已绑定的手机完成验证后设置新密码。",
+            "score": 2.2714,
+            "fact_keys": [
+              "account.password_reset",
+              "account.password_escalation"
+            ]
+          }
+        ],
+        "total": 2
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D03"
+      },
+      "reason": "读取已命中的候选原文，核验内容及潜在冲突。",
+      "observation_summary": "读取 D03（2026-03-01），原文 86 字符。",
+      "result": {
+        "doc_id": "D03",
+        "title": "企业 VPN 使用指南（合成）",
+        "version_date": "2026-03-01",
+        "synthetic": true,
+        "scope": "全体使用企业 VPN 的员工",
+        "content": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。",
+        "keywords": [
+          "VPN",
+          "远程办公",
+          "内网",
+          "客户端",
+          "连接",
+          "认证",
+          "登录失败"
+        ],
+        "facts": [
+          {
+            "key": "vpn.setup",
+            "value": "安装公司批准的客户端",
+            "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+          },
+          {
+            "key": "vpn.lockout",
+            "value": "锁定 15 分钟",
+            "quote": "VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。"
+          }
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D07"
+      },
+      "reason": "读取已命中的候选原文，核验内容及潜在冲突。",
+      "observation_summary": "读取 D07（2026-06-01），原文 74 字符。",
+      "result": {
+        "doc_id": "D07",
+        "title": "企业账号密码重置 FAQ（合成）",
+        "version_date": "2026-06-01",
+        "synthetic": true,
+        "scope": "全体企业账号用户",
+        "content": "忘记企业账号密码时，可在统一登录页面选择“忘记密码”，通过已绑定的手机完成验证后设置新密码。无法使用已绑定手机时，应联系 IT 服务台进行身份核验。",
+        "keywords": [
+          "密码",
+          "忘记密码",
+          "口令",
+          "重置",
+          "password",
+          "reset"
+        ],
+        "facts": [
+          {
+            "key": "account.password_reset",
+            "value": "已绑定的手机",
+            "quote": "忘记企业账号密码时，可在统一登录页面选择“忘记密码”，通过已绑定的手机完成验证后设置新密码。"
+          },
+          {
+            "key": "account.password_escalation",
+            "value": "身份核验",
+            "quote": "无法使用已绑定手机时，应联系 IT 服务台进行身份核验。"
+          }
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D03",
+            "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+          },
+          {
+            "doc_id": "D03",
+            "quote": "VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。"
+          },
+          {
+            "doc_id": "D07",
+            "quote": "忘记企业账号密码时，可在统一登录页面选择“忘记密码”，通过已绑定的手机完成验证后设置新密码。"
+          },
+          {
+            "doc_id": "D07",
+            "quote": "无法使用已绑定手机时，应联系 IT 服务台进行身份核验。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "已核验候选原文，已读资料未发现相同事实字段冲突。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

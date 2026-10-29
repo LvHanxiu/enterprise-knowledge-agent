@@ -1,0 +1,1 @@
+{"step": 1, "action": "clarify", "arguments": {"question": "请说明您要咨询的制度、产品或具体业务事项。", "citations": [], "gaps": ["缺少明确的咨询对象或对话上下文。"]}, "reason": "当前问题缺少可检索的业务对象。", "observation_summary": "输出通过校验，状态 needs_clarification。", "result": {"accepted": true, "status": "needs_clarification"}}

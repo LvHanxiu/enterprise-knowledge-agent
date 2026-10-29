@@ -1,0 +1,35 @@
+{
+  "mode": "live",
+  "model": "qwen-plus",
+  "validation_scope": "真实模型决策与流程",
+  "total": 1,
+  "passed": 1,
+  "cases": [
+    {
+      "id": "tool_limit",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "incomplete",
+        "answer_contains": [
+          "未完成"
+        ]
+      },
+      "actual_status": "incomplete",
+      "actions": [
+        "search"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "tool_limit.output.json",
+      "trace": "tool_limit.trace.jsonl"
+    }
+  ]
+}

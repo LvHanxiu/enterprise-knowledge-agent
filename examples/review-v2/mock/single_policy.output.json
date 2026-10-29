@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "question": "报销期限是多少天？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D01 · 2026-01-10] 员工费用报销应在费用发生之日起 30 天内提交申请。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "title": "员工费用报销办法（合成）",
+      "version_date": "2026-01-10",
+      "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "mock",
+    "name": "offline-scenario:single_policy"
+  },
+  "validation_scope": "仅运行所选离线场景，不验证自然语言理解或决策能力",
+  "usage": {},
+  "started_at": "2026-10-28T13:29:22.714885+00:00",
+  "model_responses": [],
+  "duration_ms": 0,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "报销期限是多少天？",
+        "limit": 5
+      },
+      "reason": "离线场景：检索单一报销制度。",
+      "observation_summary": "命中 1 份文档；返回：D01",
+      "result": {
+        "query": "报销期限是多少天？",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "员工费用报销办法（合成）",
+            "version_date": "2026-01-10",
+            "snippet": "员工费用报销应在费用发生之日起 30 天内提交申请。",
+            "score": 9.0858,
+            "fact_keys": [
+              "expense.deadline"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "reason": "离线场景：读取当前版本原文。",
+      "observation_summary": "读取 D01（2026-01-10），原文 53 字符。",
+      "result": {
+        "doc_id": "D01",
+        "title": "员工费用报销办法（合成）",
+        "version_date": "2026-01-10",
+        "synthetic": true,
+        "scope": "未说明适用范围和制度优先级",
+        "content": "员工费用报销应在费用发生之日起 30 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。",
+        "keywords": [
+          "报销",
+          "报账",
+          "报销期限",
+          "费用",
+          "reimbursement",
+          "expense"
+        ],
+        "facts": [
+          {
+            "key": "expense.deadline",
+            "value": "30 天",
+            "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "离线场景：逐字引用当前原文，不缓存固定天数。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

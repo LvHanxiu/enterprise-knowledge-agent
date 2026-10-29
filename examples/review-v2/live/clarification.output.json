@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "question": "那个要多久？",
+  "history": [],
+  "answer": "请问‘那个’具体指哪项事务或流程？例如：入职办理、合同审批、系统开通等",
+  "status": "needs_clarification",
+  "citations": [],
+  "gaps": [
+    "事务指代不明确"
+  ],
+  "clarification": "请问‘那个’具体指哪项事务或流程？例如：入职办理、合同审批、系统开通等",
+  "termination_reason": "completed",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 1147,
+    "completion_tokens": 71,
+    "total_tokens": 1218
+  },
+  "started_at": "2026-10-28T13:35:23.510053+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-9f1f1c45-08d7-9363-b64e-eca50ee3153d"
+    }
+  ],
+  "duration_ms": 2067,
+  "trace": [
+    {
+      "step": 1,
+      "action": "clarify",
+      "arguments": {
+        "question": "请问‘那个’具体指哪项事务或流程？例如：入职办理、合同审批、系统开通等",
+        "citations": [],
+        "gaps": [
+          "事务指代不明确"
+        ]
+      },
+      "reason": "问题中‘那个’未指明具体业务对象，无法定位相关制度或时效规定。",
+      "observation_summary": "输出通过校验，状态 needs_clarification。",
+      "result": {
+        "accepted": true,
+        "status": "needs_clarification"
+      }
+    }
+  ]
+}

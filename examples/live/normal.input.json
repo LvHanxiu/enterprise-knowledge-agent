@@ -1,0 +1,19 @@
+{
+  "id": "normal",
+  "requirement": "明确答案和可核验引用",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D03"
+    ],
+    "answer_contains": [
+      "多因素认证"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

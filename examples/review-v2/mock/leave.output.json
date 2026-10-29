@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "question": "年假应该提前多久申请？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D04 · 2026-04-15] 年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D04",
+      "title": "年假申请制度（合成）",
+      "version_date": "2026-04-15",
+      "quote": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "mock",
+    "name": "offline-scenario:leave"
+  },
+  "validation_scope": "仅运行所选离线场景，不验证自然语言理解或决策能力",
+  "usage": {},
+  "started_at": "2026-10-28T13:29:22.733336+00:00",
+  "model_responses": [],
+  "duration_ms": 1,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "年假应该提前多久申请？",
+        "limit": 5
+      },
+      "reason": "离线场景：检索年假申请资料。",
+      "observation_summary": "命中 1 份文档；返回：D04",
+      "result": {
+        "query": "年假应该提前多久申请？",
+        "hits": [
+          {
+            "doc_id": "D04",
+            "title": "年假申请制度（合成）",
+            "version_date": "2026-04-15",
+            "snippet": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。",
+            "score": 16.9002,
+            "fact_keys": [
+              "leave.application",
+              "leave.balance"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D04"
+      },
+      "reason": "离线场景：读取年假原文。",
+      "observation_summary": "读取 D04（2026-04-15），原文 78 字符。",
+      "result": {
+        "doc_id": "D04",
+        "title": "年假申请制度（合成）",
+        "version_date": "2026-04-15",
+        "synthetic": true,
+        "scope": "全体正式员工",
+        "content": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。年假余额可在员工自助平台的“假期账户”中查询。本文未规定离职时剩余年假的折算方式。",
+        "keywords": [
+          "年假",
+          "年休假",
+          "带薪休假",
+          "申请",
+          "提前",
+          "余额",
+          "annual leave",
+          "paid leave"
+        ],
+        "facts": [
+          {
+            "key": "leave.application",
+            "value": "提前 3 个工作日",
+            "quote": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。"
+          },
+          {
+            "key": "leave.balance",
+            "value": "假期账户",
+            "quote": "年假余额可在员工自助平台的“假期账户”中查询。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D04",
+            "quote": "年假应至少提前 3 个工作日在员工自助平台提交申请，经直属主管审批后生效。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "离线场景：引用当前原文中的申请规则。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

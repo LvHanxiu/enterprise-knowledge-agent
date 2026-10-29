@@ -1,0 +1,12 @@
+{
+  "id": "step_limit",
+  "requirement": "达到模型步数上限明确未完成",
+  "question": "报销期限是多少天？",
+  "max_steps": 1,
+  "expected": {
+    "status": "incomplete",
+    "answer_contains": [
+      "未完成"
+    ]
+  }
+}

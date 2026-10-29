@@ -1,0 +1,18 @@
+{
+  "id": "missing_scope",
+  "requirement": "企业版信息缺失，不能用标准版上限代答",
+  "question": "协作云企业版每次最多可以导出多少条任务？",
+  "expected": {
+    "status": [
+      "insufficient",
+      "needs_clarification"
+    ],
+    "answer_excludes": [
+      "5000"
+    ],
+    "actions": [
+      "search",
+      "read"
+    ]
+  }
+}

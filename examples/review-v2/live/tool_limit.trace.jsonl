@@ -1,0 +1,1 @@
+{"step": 1, "action": "model_error", "arguments": {}, "reason": "模型请求未成功。", "observation_summary": "失败 network_error：无法连接模型服务，请检查网络和模型地址。", "result": {"error": {"code": "network_error", "message": "无法连接模型服务，请检查网络和模型地址。", "retryable": false}}}

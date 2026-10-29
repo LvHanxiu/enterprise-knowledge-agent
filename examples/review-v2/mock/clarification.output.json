@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "question": "那个要多久？",
+  "history": [],
+  "answer": "请说明您要咨询的制度、产品或具体业务事项。",
+  "status": "needs_clarification",
+  "citations": [],
+  "gaps": [
+    "预置追问场景：缺少咨询对象。"
+  ],
+  "clarification": "请说明您要咨询的制度、产品或具体业务事项。",
+  "termination_reason": "completed",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "mock",
+    "name": "offline-scenario:clarification"
+  },
+  "validation_scope": "仅运行所选离线场景，不验证自然语言理解或决策能力",
+  "usage": {},
+  "started_at": "2026-10-28T13:29:22.712933+00:00",
+  "model_responses": [],
+  "duration_ms": 0,
+  "trace": [
+    {
+      "step": 1,
+      "action": "clarify",
+      "arguments": {
+        "question": "请说明您要咨询的制度、产品或具体业务事项。",
+        "citations": [],
+        "gaps": [
+          "预置追问场景：缺少咨询对象。"
+        ]
+      },
+      "reason": "离线场景：输出预置澄清请求，不验证问题理解。",
+      "observation_summary": "输出通过校验，状态 needs_clarification。",
+      "result": {
+        "accepted": true,
+        "status": "needs_clarification"
+      }
+    }
+  ]
+}

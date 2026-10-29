@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "history": [],
+  "answer": "模型服务异常，任务未完成。",
+  "status": "error",
+  "citations": [],
+  "gaps": [
+    "模型请求失败，未完成资料核验。"
+  ],
+  "clarification": "",
+  "termination_reason": "network_error",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 0
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {},
+  "started_at": "2026-10-28T13:35:36.102729+00:00",
+  "model_responses": [],
+  "duration_ms": 19258,
+  "trace": [
+    {
+      "step": 1,
+      "action": "model_error",
+      "arguments": {},
+      "reason": "模型请求未成功。",
+      "observation_summary": "失败 network_error：无法连接模型服务，请检查网络和模型地址。",
+      "result": {
+        "error": {
+          "code": "network_error",
+          "message": "无法连接模型服务，请检查网络和模型地址。",
+          "retryable": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "materials",
+  "requirement": "只询问报销材料时引用D05，不能被无关期限冲突阻断或混入期限",
+  "question": "报销需要准备哪些材料？",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D05"
+    ],
+    "answer_contains": [
+      "电子发票或纸质发票扫描件",
+      "费用事由"
+    ],
+    "answer_excludes": [
+      "30 天",
+      "15 天"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

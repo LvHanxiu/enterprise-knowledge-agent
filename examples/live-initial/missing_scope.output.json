@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "question": "协作云企业版每次最多可以导出多少条任务？",
+  "history": [],
+  "answer": "协作云企业版任务导出数量限制未在现有资料中查到，请确认是否需查阅特定版本（如2026企业版）或具体业务场景（如是否含子任务、跨项目导出等）？",
+  "status": "needs_clarification",
+  "citations": [],
+  "gaps": [
+    "协作云企业版任务导出数量限制"
+  ],
+  "clarification": "协作云企业版任务导出数量限制未在现有资料中查到，请确认是否需查阅特定版本（如2026企业版）或具体业务场景（如是否含子任务、跨项目导出等）？",
+  "termination_reason": "completed",
+  "steps": 5,
+  "tool_calls": 4,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "usage": {
+    "prompt_tokens": 6974,
+    "completion_tokens": 343,
+    "total_tokens": 7317
+  },
+  "started_at": "2026-10-28T12:48:10.772956+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-b97056c0-44ea-9e0a-bae8-f52e01c9199f"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-fb2674dc-5cd8-92b7-8efa-c0904084172d"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-54a97d31-a775-9236-a36b-8d6d30edf0b9"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-7ef7d477-ac56-9a99-ae25-aa465393eff6"
+    },
+    {
+      "step": 5,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-d24187dc-ccef-981b-b310-9659201ed6a6"
+    }
+  ],
+  "duration_ms": 10184,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 任务导出数量限制",
+        "limit": 5
+      },
+      "reason": "问题明确指向协作云企业版任务导出条数上限，需检索相关制度文档",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云企业版 任务导出数量限制",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 26.4685,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ]
+          }
+        ],
+        "total": 1
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D06"
+      },
+      "reason": "检索仅命中一份文档 D06，但其摘要仅提及标准版导出限制，未覆盖问题所问的企业版，需读取全文确认是否含企业版规定",
+      "observation_summary": "读取 D06（2026-05-08），原文 88 字符。",
+      "result": {
+        "doc_id": "D06",
+        "title": "协作云产品 FAQ（合成）",
+        "version_date": "2026-05-08",
+        "synthetic": true,
+        "scope": "协作云标准版",
+        "content": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。导出入口位于项目页面右上角的“更多”菜单。只有项目管理员可以执行导出。本文未提供企业版导出上限。",
+        "keywords": [
+          "协作云",
+          "协作平台",
+          "导出",
+          "CSV",
+          "任务",
+          "collabcloud",
+          "export"
+        ],
+        "facts": [
+          {
+            "key": "collabcloud.standard.export_limit",
+            "value": "5000 条",
+            "quote": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。"
+          },
+          {
+            "key": "collabcloud.standard.export_menu",
+            "value": "更多",
+            "quote": "导出入口位于项目页面右上角的“更多”菜单。"
+          },
+          {
+            "key": "collabcloud.standard.export_permission",
+            "value": "项目管理员",
+            "quote": "只有项目管理员可以执行导出。"
+          }
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 任务导出数量限制",
+        "limit": 10
+      },
+      "reason": "检索仅命中标准版文档 D06，且原文明确说明‘未提供企业版导出上限’，需扩大候选范围补全企业版相关文档",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云企业版 任务导出数量限制",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 26.4685,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ]
+          }
+        ],
+        "total": 1
+      }
+    },
+    {
+      "step": 4,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 导出限制 任务 CSV",
+        "limit": 10
+      },
+      "reason": "D06 明确声明未提供企业版导出上限，且当前检索仅命中标准版文档，需改写查询以覆盖企业版专属制度",
+      "observation_summary": "命中 1 份文档；返回：D06",
+      "result": {
+        "query": "协作云企业版 导出限制 任务 CSV",
+        "hits": [
+          {
+            "doc_id": "D06",
+            "title": "协作云产品 FAQ（合成）",
+            "version_date": "2026-05-08",
+            "snippet": "协作云标准版支持将项目任务导出为 CSV 文件，每次最多导出 5000 条任务。",
+            "score": 27.0998,
+            "fact_keys": [
+              "collabcloud.standard.export_limit",
+              "collabcloud.standard.export_menu",
+              "collabcloud.standard.export_permission"
+            ]
+          }
+        ],
+        "total": 1
+      }
+    },
+    {
+      "step": 5,
+      "action": "clarify",
+      "arguments": {
+        "question": "协作云企业版任务导出数量限制未在现有资料中查到，请确认是否需查阅特定版本（如2026企业版）或具体业务场景（如是否含子任务、跨项目导出等）？",
+        "citations": [],
+        "gaps": [
+          "协作云企业版任务导出数量限制"
+        ]
+      },
+      "reason": "D06原文明确声明‘未提供企业版导出上限’，且三次检索均仅命中标准版文档D06，无企业版相关文档候选",
+      "observation_summary": "输出通过校验，状态 needs_clarification。",
+      "result": {
+        "accepted": true,
+        "status": "needs_clarification"
+      }
+    }
+  ]
+}

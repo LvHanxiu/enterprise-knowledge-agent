@@ -1,0 +1,4 @@
+{"step": 1, "action": "search", "arguments": {"query": "餐补标准 金额", "limit": 5}, "reason": "问题询问餐补每日金额，需检索相关制度文档", "observation_summary": "命中 0 份文档；返回：", "result": {"query": "餐补标准 金额", "hits": [], "total": 0}}
+{"step": 2, "action": "search", "arguments": {"query": "员工餐补 标准", "limit": 5}, "reason": "首次检索无结果，需改写查询词扩大覆盖范围", "observation_summary": "命中 0 份文档；返回：", "result": {"query": "员工餐补 标准", "hits": [], "total": 0}}
+{"step": 3, "action": "search", "arguments": {"query": "餐饮补贴 发放标准", "limit": 5}, "reason": "前两次检索未命中，需更换同义关键词组合扩大召回", "observation_summary": "命中 0 份文档；返回：", "result": {"query": "餐饮补贴 发放标准", "hits": [], "total": 0}}
+{"step": 4, "action": "model_error", "arguments": {}, "reason": "模型请求未成功。", "observation_summary": "失败 http_400：模型服务返回 HTTP 400，请检查配置或稍后重试。", "result": {"error": {"code": "http_400", "message": "模型服务返回 HTTP 400，请检查配置或稍后重试。", "retryable": false}}}

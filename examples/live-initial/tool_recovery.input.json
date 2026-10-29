@@ -1,0 +1,18 @@
+{
+  "id": "tool_recovery",
+  "requirement": "读取工具临时失败后模型基于错误调整动作",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "failures": {
+    "read": 1
+  },
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D03"
+    ],
+    "answer_contains": [
+      "多因素认证"
+    ],
+    "has_tool_error": true
+  }
+}

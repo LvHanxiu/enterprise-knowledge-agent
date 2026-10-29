@@ -1,0 +1,15 @@
+{
+  "id": "product",
+  "requirement": "产品FAQ答案、限制和引用",
+  "question": "协作云标准版导出任务的上限和权限是什么？",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D06"
+    ],
+    "answer_contains": [
+      "5000 条",
+      "项目管理员"
+    ]
+  }
+}

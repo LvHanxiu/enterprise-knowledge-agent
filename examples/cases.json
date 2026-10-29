@@ -1,0 +1,107 @@
+[
+  {
+    "id": "normal",
+    "requirement": "明确答案和可核验引用",
+    "question": "首次使用企业 VPN 怎么操作？",
+    "expected": {"status": "answered", "citation_ids": ["D03"], "answer_contains": ["多因素认证"], "actions": ["search", "read", "finish"]}
+  },
+  {
+    "id": "conflict",
+    "requirement": "相同规则30/15天冲突，不能凭版本日期擅选",
+    "question": "报销期限是多少天？",
+    "expected": {"status": "conflict", "citation_ids": ["D01", "D02"], "answer_contains": ["30 天", "15 天", "确认"], "actions": ["search", "read"]}
+  },
+  {
+    "id": "outside",
+    "requirement": "资料外问题必须承认缺口",
+    "question": "公司餐补每天多少钱？",
+    "expected": {"status": "insufficient", "answer_contains": ["不足"], "actions": ["search"]}
+  },
+  {
+    "id": "paraphrase",
+    "requirement": "改写后的相似问题",
+    "question": "我垫付的钱最迟几天内要报账？",
+    "expected": {"status": "conflict", "citation_ids": ["D01", "D02"], "answer_contains": ["30 天", "15 天"]}
+  },
+  {
+    "id": "context",
+    "requirement": "结合上下文处理追问，历史回答不能当作知识库证据",
+    "question": "那连续登录失败 3 次怎么办？",
+    "history": [{"role": "user", "content": "首次使用企业 VPN 怎么操作？"}, {"role": "assistant", "content": "安装公司批准的客户端，用企业账号登录并完成多因素认证。"}],
+    "expected": {"status": "answered", "citation_ids": ["D03"], "answer_contains": ["15 分钟", "IT 服务台"]}
+  },
+  {
+    "id": "tool_recovery",
+    "requirement": "读取工具临时失败后模型基于错误调整动作",
+    "question": "首次使用企业 VPN 怎么操作？",
+    "failures": {"read": 1},
+    "expected": {"status": "answered", "citation_ids": ["D03"], "answer_contains": ["多因素认证"], "has_tool_error": true}
+  },
+  {
+    "id": "tool_failure",
+    "requirement": "工具持续失败要明确缺口或未完成，不编造答案",
+    "question": "首次使用企业 VPN 怎么操作？",
+    "failures": {"read": -1},
+    "max_steps": 8,
+    "max_tool_calls": 5,
+    "expected": {"status": ["insufficient", "incomplete"], "has_tool_error": true}
+  },
+  {
+    "id": "missing_scope",
+    "requirement": "企业版信息缺失，不能用标准版上限代答",
+    "question": "协作云企业版每次最多可以导出多少条任务？",
+    "expected": {"status": ["insufficient", "needs_clarification"], "answer_excludes": ["5000"], "actions": ["search", "read"]}
+  },
+  {
+    "id": "missing_rule",
+    "requirement": "已找到相关文档但具体规则缺失，不得以无关事实代答",
+    "question": "离职时剩余年假如何折算？",
+    "expected": {"status": "insufficient", "answer_excludes": ["3 个工作日"], "actions": ["search", "read"]}
+  },
+  {
+    "id": "clarification",
+    "requirement": "没有主题和历史时应追问",
+    "question": "那个要多久？",
+    "expected": {"status": "needs_clarification", "actions": ["clarify"]}
+  },
+  {
+    "id": "single_policy",
+    "requirement": "仅有D01且无冲突时按D01回答",
+    "question": "报销期限是多少天？",
+    "data": "data/single_policy.json",
+    "expected": {"status": "answered", "citation_ids": ["D01"], "answer_contains": ["30 天"], "answer_excludes": ["15 天", "45 天"]}
+  },
+  {
+    "id": "changed_policy",
+    "requirement": "替换文档内容后答案随原文变化",
+    "question": "报销期限是多少天？",
+    "data": "data/changed_policy.json",
+    "expected": {"status": "answered", "citation_ids": ["D01"], "answer_contains": ["45 天"], "answer_excludes": ["30 天", "15 天"]}
+  },
+  {
+    "id": "step_limit",
+    "requirement": "达到模型步数上限明确未完成",
+    "question": "报销期限是多少天？",
+    "max_steps": 1,
+    "expected": {"status": "incomplete", "answer_contains": ["未完成"]}
+  },
+  {
+    "id": "tool_limit",
+    "requirement": "达到工具调用上限明确未完成",
+    "question": "首次使用企业 VPN 怎么操作？",
+    "max_tool_calls": 0,
+    "expected": {"status": "incomplete", "answer_contains": ["未完成"]}
+  },
+  {
+    "id": "product",
+    "requirement": "产品FAQ答案、限制和引用",
+    "question": "协作云标准版导出任务的上限和权限是什么？",
+    "expected": {"status": "answered", "citation_ids": ["D06"], "answer_contains": ["5000 条", "项目管理员"]}
+  },
+  {
+    "id": "leave",
+    "requirement": "不同业务领域明确答案",
+    "question": "年假应该提前多久申请？",
+    "expected": {"status": "answered", "citation_ids": ["D04"], "answer_contains": ["3 个工作日"]}
+  }
+]

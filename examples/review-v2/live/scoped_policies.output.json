@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "question": "总部员工报销期限是多少天？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D01 · 2026-01-10] 总部员工费用报销应在费用发生之日起 30 天内提交申请。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "title": "总部员工费用报销办法（合成）",
+      "version_date": "2026-01-10",
+      "quote": "总部员工费用报销应在费用发生之日起 30 天内提交申请。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 4239,
+    "completion_tokens": 172,
+    "total_tokens": 4411
+  },
+  "started_at": "2026-10-28T13:36:25.303794+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-4c49225a-3919-9639-818d-86392f1a82cb"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-8bdd1e24-1762-9537-9156-4335d2eb44cf"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-a5a2f600-9189-90c8-b68e-f7942584b192"
+    }
+  ],
+  "duration_ms": 5000,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "总部员工 报销期限",
+        "limit": 5
+      },
+      "reason": "问题明确指向总部员工的报销期限，需检索相关制度文档",
+      "observation_summary": "命中 2 份文档；返回：D01, D02",
+      "result": {
+        "query": "总部员工 报销期限",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "总部员工费用报销办法（合成）",
+            "version_date": "2026-01-10",
+            "snippet": "总部员工费用报销应在费用发生之日起 30 天内提交申请。",
+            "score": 10.9708,
+            "fact_keys": [
+              "expense.deadline"
+            ],
+            "index_warnings": []
+          },
+          {
+            "doc_id": "D02",
+            "title": "分公司员工费用报销办法（合成）",
+            "version_date": "2026-02-05",
+            "snippet": "分公司员工费用报销应在费用发生之日起 15 天内提交申请。",
+            "score": 8.8678,
+            "fact_keys": [
+              "expense.deadline"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 2,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "reason": "检索命中《总部员工费用报销办法（合成）》明确提及总部员工报销期限，需读取正文核验适用范围与具体规定",
+      "observation_summary": "读取 D01（2026-01-10），原文 50 字符。",
+      "result": {
+        "doc_id": "D01",
+        "title": "总部员工费用报销办法（合成）",
+        "version_date": "2026-01-10",
+        "synthetic": true,
+        "scope": "总部员工",
+        "content": "总部员工费用报销应在费用发生之日起 30 天内提交申请。本制度仅适用于总部员工，不适用于分公司员工。",
+        "keywords": [
+          "报销",
+          "报销期限",
+          "总部"
+        ],
+        "facts": [
+          {
+            "key": "expense.deadline",
+            "value": "30 天",
+            "quote": "总部员工费用报销应在费用发生之日起 30 天内提交申请。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "总部员工费用报销应在费用发生之日起 30 天内提交申请。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "已读取《总部员工费用报销办法（合成）》正文，明确总部员工报销期限为30天，且适用范围限定为总部员工，无冲突或缺失。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

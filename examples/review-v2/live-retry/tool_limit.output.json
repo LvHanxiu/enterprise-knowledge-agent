@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "history": [],
+  "answer": "执行达到上限，任务未完成；请调整执行预算或缩小问题范围后重试。",
+  "status": "incomplete",
+  "citations": [],
+  "gaps": [
+    "工具调用次数达到上限，证据未充分核验。"
+  ],
+  "clarification": "",
+  "termination_reason": "tool_limit",
+  "steps": 1,
+  "tool_calls": 0,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 0
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 1152,
+    "completion_tokens": 47,
+    "total_tokens": 1199
+  },
+  "started_at": "2026-10-28T13:38:43.627644+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-ff0f37c1-9879-9e1d-9f1c-a72f04b8ac8b"
+    }
+  ],
+  "duration_ms": 1594,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "企业VPN 首次使用 操作步骤",
+        "limit": 5
+      },
+      "reason": "问题明确指向首次使用企业VPN的操作流程，需检索相关操作指南或入职指引文档。",
+      "observation_summary": "失败 tool_limit：工具调用次数已达上限。",
+      "result": {
+        "error": {
+          "code": "tool_limit",
+          "message": "工具调用次数已达上限。",
+          "retryable": false
+        }
+      }
+    }
+  ]
+}

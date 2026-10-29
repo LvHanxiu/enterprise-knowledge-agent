@@ -1,0 +1,24 @@
+{
+  "id": "scoped_policies",
+  "requirement": "相同事实键但总部和分公司适用范围明确不同，应按用户范围回答",
+  "question": "总部员工报销期限是多少天？",
+  "data": "data/review/scoped_policies.json",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D01"
+    ],
+    "answer_contains": [
+      "总部员工",
+      "30 天"
+    ],
+    "answer_excludes": [
+      "15 天"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

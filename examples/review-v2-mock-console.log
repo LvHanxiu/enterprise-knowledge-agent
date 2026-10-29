@@ -1,0 +1,553 @@
+{
+  "mode": "mock",
+  "model": "explicit-offline-scenarios",
+  "validation_scope": "仅运行所选离线场景，不验证自然语言理解或模型决策能力",
+  "total": 16,
+  "passed": 16,
+  "cases": [
+    {
+      "id": "normal",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "action:search": true,
+        "action:read": true,
+        "action:finish": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "多因素认证"
+        ],
+        "actions": [
+          "search",
+          "read",
+          "finish"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "normal.output.json",
+      "trace": "normal.trace.jsonl"
+    },
+    {
+      "id": "conflict",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "answer_contains:确认": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天",
+          "确认"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "conflict",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "conflict.output.json",
+      "trace": "conflict.trace.jsonl"
+    },
+    {
+      "id": "outside",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:不足": true,
+        "action:search": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "insufficient",
+        "answer_contains": [
+          "不足"
+        ],
+        "actions": [
+          "search"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "search",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "outside.output.json",
+      "trace": "outside.trace.jsonl"
+    },
+    {
+      "id": "paraphrase",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_contains:15 天": true,
+        "citation:D01": true,
+        "citation:D02": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "conflict",
+        "citation_ids": [
+          "D01",
+          "D02"
+        ],
+        "answer_contains": [
+          "30 天",
+          "15 天"
+        ]
+      },
+      "actual_status": "conflict",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "paraphrase.output.json",
+      "trace": "paraphrase.trace.jsonl"
+    },
+    {
+      "id": "context",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:15 分钟": true,
+        "answer_contains:IT 服务台": true,
+        "citation:D03": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "15 分钟",
+          "IT 服务台"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "context.output.json",
+      "trace": "context.trace.jsonl"
+    },
+    {
+      "id": "tool_recovery",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:多因素认证": true,
+        "citation:D03": true,
+        "tool_error_observed": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D03"
+        ],
+        "answer_contains": [
+          "多因素认证"
+        ],
+        "has_tool_error": true
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "tool_recovery.output.json",
+      "trace": "tool_recovery.trace.jsonl"
+    },
+    {
+      "id": "tool_failure",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "tool_error_observed": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": [
+          "insufficient",
+          "incomplete"
+        ],
+        "has_tool_error": true
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "read",
+        "finish"
+      ],
+      "steps": 4,
+      "tool_calls": 3,
+      "output": "tool_failure.output.json",
+      "trace": "tool_failure.trace.jsonl"
+    },
+    {
+      "id": "missing_scope",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_excludes:5000": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": [
+          "insufficient",
+          "needs_clarification"
+        ],
+        "answer_excludes": [
+          "5000"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "missing_scope.output.json",
+      "trace": "missing_scope.trace.jsonl"
+    },
+    {
+      "id": "missing_rule",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_excludes:3 个工作日": true,
+        "action:search": true,
+        "action:read": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "insufficient",
+        "answer_excludes": [
+          "3 个工作日"
+        ],
+        "actions": [
+          "search",
+          "read"
+        ]
+      },
+      "actual_status": "insufficient",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "missing_rule.output.json",
+      "trace": "missing_rule.trace.jsonl"
+    },
+    {
+      "id": "clarification",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "action:clarify": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "needs_clarification",
+        "actions": [
+          "clarify"
+        ]
+      },
+      "actual_status": "needs_clarification",
+      "actions": [
+        "clarify"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "clarification.output.json",
+      "trace": "clarification.trace.jsonl"
+    },
+    {
+      "id": "single_policy",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:30 天": true,
+        "answer_excludes:15 天": true,
+        "answer_excludes:45 天": true,
+        "citation:D01": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "30 天"
+        ],
+        "answer_excludes": [
+          "15 天",
+          "45 天"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "single_policy.output.json",
+      "trace": "single_policy.trace.jsonl"
+    },
+    {
+      "id": "changed_policy",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:45 天": true,
+        "answer_excludes:30 天": true,
+        "answer_excludes:15 天": true,
+        "citation:D01": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D01"
+        ],
+        "answer_contains": [
+          "45 天"
+        ],
+        "answer_excludes": [
+          "30 天",
+          "15 天"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "changed_policy.output.json",
+      "trace": "changed_policy.trace.jsonl"
+    },
+    {
+      "id": "step_limit",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "incomplete",
+        "answer_contains": [
+          "未完成"
+        ]
+      },
+      "actual_status": "incomplete",
+      "actions": [
+        "search"
+      ],
+      "steps": 1,
+      "tool_calls": 1,
+      "output": "step_limit.output.json",
+      "trace": "step_limit.trace.jsonl"
+    },
+    {
+      "id": "tool_limit",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:未完成": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "incomplete",
+        "answer_contains": [
+          "未完成"
+        ]
+      },
+      "actual_status": "incomplete",
+      "actions": [
+        "search"
+      ],
+      "steps": 1,
+      "tool_calls": 0,
+      "output": "tool_limit.output.json",
+      "trace": "tool_limit.trace.jsonl"
+    },
+    {
+      "id": "product",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:5000 条": true,
+        "answer_contains:项目管理员": true,
+        "citation:D06": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D06"
+        ],
+        "answer_contains": [
+          "5000 条",
+          "项目管理员"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "product.output.json",
+      "trace": "product.trace.jsonl"
+    },
+    {
+      "id": "leave",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "answer_contains:3 个工作日": true,
+        "citation:D04": true,
+        "bounded_execution": true,
+        "required_evidence": true,
+        "explicit_gaps": true,
+        "citations_verified": true
+      },
+      "expected": {
+        "status": "answered",
+        "citation_ids": [
+          "D04"
+        ],
+        "answer_contains": [
+          "3 个工作日"
+        ]
+      },
+      "actual_status": "answered",
+      "actions": [
+        "search",
+        "read",
+        "finish"
+      ],
+      "steps": 3,
+      "tool_calls": 2,
+      "output": "leave.output.json",
+      "trace": "leave.trace.jsonl"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "cash_out",
+  "requirement": "缺少年假折现政策时明确资料不足，不以申请提前天数代答",
+  "question": "年假可以折现吗？",
+  "expected": {
+    "status": "insufficient",
+    "answer_contains": [
+      "不足"
+    ],
+    "answer_excludes": [
+      "3 个工作日"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

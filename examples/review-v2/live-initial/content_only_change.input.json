@@ -1,0 +1,24 @@
+{
+  "id": "content_only_change",
+  "requirement": "只修改原文为45天，旧30天事实提示失效时仍根据新原文回答",
+  "question": "报销期限是多少天？",
+  "data": "data/review/content_only_change.json",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D01"
+    ],
+    "answer_contains": [
+      "45 天"
+    ],
+    "answer_excludes": [
+      "30 天",
+      "15 天"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}

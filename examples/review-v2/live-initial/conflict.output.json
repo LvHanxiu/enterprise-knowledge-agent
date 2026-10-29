@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "question": "报销期限是多少天？",
+  "history": [],
+  "answer": "资料存在冲突，无法确定唯一答案：\n[D01 · 2026-01-10] 员工费用报销应在费用发生之日起 30 天内提交申请。\n[D02 · 2026-02-05] 员工费用报销应在费用发生之日起 15 天内提交申请。\n请确认冲突资料的适用范围及优先级；仅凭版本日期不能选择其中一个答案。",
+  "status": "conflict",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "title": "员工费用报销办法（合成）",
+      "version_date": "2026-01-10",
+      "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+    },
+    {
+      "doc_id": "D02",
+      "title": "费用报销操作指引（合成）",
+      "version_date": "2026-02-05",
+      "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。"
+    }
+  ],
+  "gaps": [
+    "D01 与 D02 对报销期限规定冲突（30天 vs 15天），且原文均未说明适用范围、优先级或替代关系"
+  ],
+  "clarification": "请确认冲突资料的适用范围及优先级；仅凭版本日期不能选择其中一个答案。",
+  "termination_reason": "completed",
+  "steps": 4,
+  "tool_calls": 3,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 6248,
+    "completion_tokens": 298,
+    "total_tokens": 6546
+  },
+  "started_at": "2026-10-28T13:30:56.404351+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-6e259230-5f7a-975e-ac74-b4b8d89503f8"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-ba9b8d88-1a26-9b92-bd43-173558899dc4"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-2f074d39-8d32-9455-8c33-7ca381e3f6d2"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-6bf333c0-aeb7-982b-ae98-643d7025005d"
+    }
+  ],
+  "duration_ms": 8628,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "报销期限",
+        "limit": 5
+      },
+      "reason": "问题明确指向报销期限，需检索相关制度文档",
+      "observation_summary": "命中 3 份文档；返回：D01, D02, D05",
+      "result": {
+        "query": "报销期限",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "员工费用报销办法（合成）",
+            "version_date": "2026-01-10",
+            "snippet": "员工费用报销应在费用发生之日起 30 天内提交申请。",
+            "score": 11.7044,
+            "fact_keys": [
+              "expense.deadline"
+            ],
+            "index_warnings": []
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销操作指引（合成）",
+            "version_date": "2026-02-05",
+            "snippet": "员工费用报销应在费用发生之日起 15 天内提交申请。",
+            "score": 11.4135,
+            "fact_keys": [
+              "expense.deadline"
+            ],
+            "index_warnings": []
+          },
+          {
+            "doc_id": "D05",
+            "title": "报销发票材料说明（合成）",
+            "version_date": "2026-04-20",
+            "snippet": "本文仅规定所需材料，不规定报销提交期限。",
+            "score": 6.2395,
+            "fact_keys": [
+              "expense.documents",
+              "expense.invoice_title"
+            ],
+            "index_warnings": []
+          }
+        ],
+        "total": 3,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "reason": "D01 和 D02 对报销期限规定冲突（30天 vs 15天），需读取原文确认适用范围、生效条件或替代关系",
+      "observation_summary": "读取 D01（2026-01-10），原文 53 字符。",
+      "result": {
+        "doc_id": "D01",
+        "title": "员工费用报销办法（合成）",
+        "version_date": "2026-01-10",
+        "synthetic": true,
+        "scope": "未说明适用范围和制度优先级",
+        "content": "员工费用报销应在费用发生之日起 30 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。",
+        "keywords": [
+          "报销",
+          "报账",
+          "报销期限",
+          "费用",
+          "reimbursement",
+          "expense"
+        ],
+        "facts": [
+          {
+            "key": "expense.deadline",
+            "value": "30 天",
+            "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D02"
+      },
+      "reason": "D01 和 D02 对报销期限规定冲突（30天 vs 15天），需读取 D02 原文确认适用范围、生效条件或替代关系",
+      "observation_summary": "读取 D02（2026-02-05），原文 71 字符。",
+      "result": {
+        "doc_id": "D02",
+        "title": "费用报销操作指引（合成）",
+        "version_date": "2026-02-05",
+        "synthetic": true,
+        "scope": "未说明适用范围和制度优先级",
+        "content": "员工费用报销应在费用发生之日起 15 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。版本日期较新本身不代表废止其他制度。",
+        "keywords": [
+          "报销",
+          "报账",
+          "报销期限",
+          "费用",
+          "reimbursement",
+          "expense"
+        ],
+        "facts": [
+          {
+            "key": "expense.deadline",
+            "value": "15 天",
+            "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。"
+          }
+        ],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 4,
+      "action": "finish",
+      "arguments": {
+        "status": "conflict",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "员工费用报销应在费用发生之日起 30 天内提交申请。"
+          },
+          {
+            "doc_id": "D02",
+            "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。"
+          }
+        ],
+        "gaps": [
+          "D01 与 D02 对报销期限规定冲突（30天 vs 15天），且原文均未说明适用范围、优先级或替代关系"
+        ]
+      },
+      "reason": "D01 和 D02 原文分别规定 30 天和 15 天报销期限，但均未说明适用范围、优先级或替代关系，构成无法消解的冲突",
+      "observation_summary": "输出通过校验，状态 conflict。",
+      "result": {
+        "accepted": true,
+        "status": "conflict"
+      }
+    }
+  ]
+}

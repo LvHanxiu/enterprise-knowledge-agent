@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "question": "协作云企业版每次最多可以导出多少条任务？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D08 · 2026-10-01] 协作云企业版支持将项目任务导出为 CSV 文件，每次最多导出 10000 条任务。此上限仅适用于企业版，不适用于标准版。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D08",
+      "title": "D08",
+      "version_date": "2026-10-01",
+      "quote": "协作云企业版支持将项目任务导出为 CSV 文件，每次最多导出 10000 条任务。此上限仅适用于企业版，不适用于标准版。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 3,
+  "tool_calls": 2,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "validation_scope": "模型根据工具观测选择动作；结果仍需结合引用和场景验收。",
+  "usage": {
+    "prompt_tokens": 4062,
+    "completion_tokens": 217,
+    "total_tokens": 4279
+  },
+  "started_at": "2026-10-28T13:36:46.212362+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-7c6b57a0-3565-9d26-ae3d-bef90010980b"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-4a053f56-e383-9168-a0f4-ae8fee9866cd"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-6d227c08-15b8-9f51-80a2-8f5fafcf1903"
+    }
+  ],
+  "duration_ms": 6700,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "协作云企业版 任务导出数量限制",
+        "limit": 5
+      },
+      "reason": "问题明确指向协作云企业版任务导出条数上限，需检索相关制度文档",
+      "observation_summary": "命中 1 份文档；返回：D08",
+      "result": {
+        "query": "协作云企业版 任务导出数量限制",
+        "hits": [
+          {
+            "doc_id": "D08",
+            "title": "D08",
+            "version_date": "2026-10-01",
+            "snippet": "协作云企业版支持将项目任务导出为 CSV 文件，每次最多导出 10000 条任务。",
+            "score": 9.6542,
+            "fact_keys": [],
+            "index_warnings": []
+          }
+        ],
+        "total": 1,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D08"
+      },
+      "reason": "检索命中唯一文档 D08，摘要提及‘每次最多导出 10000 条任务’，需读取全文核验该表述是否为正式规定且无例外条件",
+      "observation_summary": "读取 D08（2026-10-01），原文 60 字符。",
+      "result": {
+        "doc_id": "D08",
+        "version_date": "2026-10-01",
+        "content": "协作云企业版支持将项目任务导出为 CSV 文件，每次最多导出 10000 条任务。此上限仅适用于企业版，不适用于标准版。",
+        "title": "D08",
+        "keywords": [],
+        "facts": [],
+        "index_warnings": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D08",
+            "quote": "协作云企业版支持将项目任务导出为 CSV 文件，每次最多导出 10000 条任务。此上限仅适用于企业版，不适用于标准版。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "D08 全文明确说明协作云企业版每次最多导出 10000 条任务，且限定适用范围为企业版，无冲突或缺失信息。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

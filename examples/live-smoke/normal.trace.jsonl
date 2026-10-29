@@ -1,0 +1,1 @@
+{"step": 1, "action": "model_error", "arguments": {}, "reason": "模型请求未成功。", "observation_summary": "失败 timeout：模型请求超时。", "result": {"error": {"code": "timeout", "message": "模型请求超时。", "retryable": false}}}

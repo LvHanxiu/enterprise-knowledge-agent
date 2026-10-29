@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "question": "首次使用企业 VPN 怎么操作？",
+  "history": [],
+  "answer": "根据已核验原文：\n[D03 · 2026-03-01] 首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。",
+  "status": "answered",
+  "citations": [
+    {
+      "doc_id": "D03",
+      "title": "企业 VPN 使用指南（合成）",
+      "version_date": "2026-03-01",
+      "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+    }
+  ],
+  "gaps": [],
+  "clarification": "",
+  "termination_reason": "completed",
+  "steps": 4,
+  "tool_calls": 3,
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 8
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus"
+  },
+  "usage": {
+    "prompt_tokens": 5162,
+    "completion_tokens": 214,
+    "total_tokens": 5376
+  },
+  "started_at": "2026-10-28T12:47:19.912323+00:00",
+  "model_responses": [
+    {
+      "step": 1,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-89d492c7-92a2-92aa-8735-f49ca3bb7337"
+    },
+    {
+      "step": 2,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-14dafcf9-98c8-9a99-a9ad-d6bc2706fe7c"
+    },
+    {
+      "step": 3,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-2d5a91e7-7ed2-9213-a2d9-571d5d44d19f"
+    },
+    {
+      "step": 4,
+      "provider": "dashscope.aliyuncs.com",
+      "model": "qwen-plus",
+      "response_id": "chatcmpl-d8738ecd-4de0-96f4-9805-8d86e34c7422"
+    }
+  ],
+  "duration_ms": 6814,
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "arguments": {
+        "query": "企业VPN首次使用操作指南",
+        "limit": 5
+      },
+      "reason": "问题明确指向企业VPN首次使用的操作步骤，需检索相关指南文档",
+      "observation_summary": "命中 2 份文档；返回：D03, D02",
+      "result": {
+        "query": "企业VPN首次使用操作指南",
+        "hits": [
+          {
+            "doc_id": "D03",
+            "title": "企业 VPN 使用指南（合成）",
+            "version_date": "2026-03-01",
+            "snippet": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。",
+            "score": 15.7526,
+            "fact_keys": [
+              "vpn.setup",
+              "vpn.lockout"
+            ]
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销操作指引（合成）",
+            "version_date": "2026-02-05",
+            "snippet": "员工费用报销应在费用发生之日起 15 天内提交申请。",
+            "score": 3.2907,
+            "fact_keys": [
+              "expense.deadline"
+            ]
+          }
+        ],
+        "total": 2
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D03"
+      },
+      "reason": "D03 标题和摘要明确匹配企业 VPN 首次使用操作，需读取全文获取完整步骤",
+      "observation_summary": "读取 D03（2026-03-01），原文 86 字符。",
+      "result": {
+        "doc_id": "D03",
+        "title": "企业 VPN 使用指南（合成）",
+        "version_date": "2026-03-01",
+        "synthetic": true,
+        "scope": "全体使用企业 VPN 的员工",
+        "content": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。",
+        "keywords": [
+          "VPN",
+          "远程办公",
+          "内网",
+          "客户端",
+          "连接",
+          "认证",
+          "登录失败"
+        ],
+        "facts": [
+          {
+            "key": "vpn.setup",
+            "value": "安装公司批准的客户端",
+            "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+          },
+          {
+            "key": "vpn.lockout",
+            "value": "锁定 15 分钟",
+            "quote": "VPN 连续登录失败 3 次后，账号将锁定 15 分钟；仍无法登录时请联系 IT 服务台。"
+          }
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "action": "read",
+      "arguments": {
+        "doc_id": "D02"
+      },
+      "reason": "D02 与问题无关，但 search total=2 且 hits=2，需读取全部候选以确认无遗漏相关文档",
+      "observation_summary": "读取 D02（2026-02-05），原文 71 字符。",
+      "result": {
+        "doc_id": "D02",
+        "title": "费用报销操作指引（合成）",
+        "version_date": "2026-02-05",
+        "synthetic": true,
+        "scope": "未说明适用范围和制度优先级",
+        "content": "员工费用报销应在费用发生之日起 15 天内提交申请。本文未说明适用范围、与其他报销制度的优先级或替代关系。版本日期较新本身不代表废止其他制度。",
+        "keywords": [
+          "报销",
+          "报账",
+          "报销期限",
+          "费用",
+          "reimbursement",
+          "expense"
+        ],
+        "facts": [
+          {
+            "key": "expense.deadline",
+            "value": "15 天",
+            "quote": "员工费用报销应在费用发生之日起 15 天内提交申请。"
+          }
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "citations": [
+          {
+            "doc_id": "D03",
+            "quote": "首次使用企业 VPN，应先安装公司批准的客户端，使用企业账号登录并完成多因素认证。"
+          }
+        ],
+        "gaps": []
+      },
+      "reason": "D03 明确给出首次使用企业 VPN 的完整操作步骤，且 D02 无关，无其他候选需读取。",
+      "observation_summary": "输出通过校验，状态 answered。",
+      "result": {
+        "accepted": true,
+        "status": "answered"
+      }
+    }
+  ]
+}

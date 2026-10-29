@@ -1,0 +1,20 @@
+{
+  "id": "explicit_reference",
+  "requirement": "句首有这个但已明确VPN主题时直接检索回答，不做无谓追问",
+  "question": "这个 VPN 首次使用怎么操作？",
+  "expected": {
+    "status": "answered",
+    "citation_ids": [
+      "D03"
+    ],
+    "answer_contains": [
+      "公司批准的客户端",
+      "多因素认证"
+    ],
+    "actions": [
+      "search",
+      "read",
+      "finish"
+    ]
+  }
+}
